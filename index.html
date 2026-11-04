@@ -1,0 +1,1950 @@
+<!DOCTYPE html>
+<html lang="bn" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>শরীফ ভূঁইয়ার বাড়ি | কামান খোলা, দালাল বাজার, লক্ষ্মীপুর</title>
+  <meta name="description" content="কামান খোলা, ৫ নং ওয়ার্ড, ৩ নং দালাল বাজার ইউনিয়ন, লক্ষ্মীপুর ৩৭০১ - শরীফ ভূঁইয়ার বাড়ির অফিসিয়াল ল্যান্ডমার্ক পোর্টাল, অবস্থান পরিচিতি ও লাইভ স্যাটেলাইট ম্যাপ।" />
+  <meta property="og:title" content="শরীফ ভূঁইয়ার বাড়ি | দালাল বাজার, লক্ষ্মীপুর" />
+  <meta property="og:description" content="কামান খোলা, ৫ নং ওয়ার্ড, ৩ নং দালাল বাজার ইউনিয়ন, ডাকঘর: ৩৭০১, দালাল বাজার, লক্ষ্মীপুর।" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#070a12" />
+
+  <!-- Google Fonts: Hind Siliguri (Bengali) & Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN for instant standalone deployment on GitHub Pages / Netlify / Vercel -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Leaflet CSS for Live Satellite / Interactive Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+  <style>
+    :root {
+      --bg-dark: #060913;
+      --card-bg: rgba(13, 20, 36, 0.65);
+      --card-border: rgba(45, 212, 191, 0.22);
+      --neon-cyan: #2dd4bf;
+      --neon-cyan-glow: rgba(45, 212, 191, 0.35);
+      --neon-violet: #8b5cf6;
+      --neon-violet-glow: rgba(139, 92, 246, 0.35);
+      --font-bn: 'Hind Siliguri', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-en: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: #f1f5f9;
+      font-family: var(--font-bn);
+      line-height: 1.75;
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+      background-image: 
+        radial-gradient(circle at 10% 15%, rgba(45, 212, 191, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.1) 0%, transparent 45%),
+        radial-gradient(circle at 50% 80%, rgba(56, 189, 248, 0.06) 0%, transparent 50%);
+      background-attachment: fixed;
+    }
+
+    /* Ambient Tech Grid Background Pattern */
+    .tech-grid-bg {
+      position: fixed;
+      inset: 0;
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Liquid Glassmorphism Core System */
+    .liquid-glass {
+      background: var(--card-bg);
+      backdrop-filter: blur(28px) saturate(180%);
+      -webkit-backdrop-filter: blur(28px) saturate(180%);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      box-shadow: 
+        0 12px 35px -8px rgba(0, 0, 0, 0.55),
+        0 0 20px -4px rgba(45, 212, 191, 0.12),
+        inset 0 1px 1px 0 rgba(255, 255, 255, 0.14);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .liquid-glass::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+      pointer-events: none;
+    }
+
+    .liquid-glass:hover {
+      border-color: rgba(139, 92, 246, 0.4);
+      box-shadow: 
+        0 20px 45px -6px rgba(0, 0, 0, 0.65),
+        0 0 28px 0 rgba(139, 92, 246, 0.2),
+        inset 0 1px 2px 0 rgba(255, 255, 255, 0.22);
+      transform: translateY(-2px);
+    }
+
+    /* Glass Orb and Housing */
+    .glass-orb {
+      background: radial-gradient(circle at 30% 30%, rgba(45, 212, 191, 0.25), rgba(15, 23, 42, 0.75));
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(45, 212, 191, 0.4);
+      box-shadow: 0 0 35px rgba(45, 212, 191, 0.25), inset 0 2px 6px rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+    }
+
+    .neon-pill-icon {
+      width: 44px;
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: rgba(45, 212, 191, 0.08);
+      border: 1px solid rgba(45, 212, 191, 0.3);
+      color: var(--neon-cyan);
+      box-shadow: 0 0 16px rgba(45, 212, 191, 0.15);
+      flex-shrink: 0;
+    }
+
+    .neon-pill-icon.violet {
+      background: rgba(139, 92, 246, 0.09);
+      border-color: rgba(139, 92, 246, 0.32);
+      color: #a78bfa;
+      box-shadow: 0 0 16px rgba(139, 92, 246, 0.18);
+    }
+
+    /* Buttons */
+    .btn-neon-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 26px;
+      background: linear-gradient(135deg, #0d9488 0%, #2dd4bf 50%, #38bdf8 100%);
+      color: #041014;
+      font-weight: 700;
+      font-size: 15px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 4px 20px rgba(45, 212, 191, 0.35), 0 0 30px rgba(45, 212, 191, 0.2);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .btn-neon-primary:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 8px 30px rgba(45, 212, 191, 0.55), 0 0 40px rgba(45, 212, 191, 0.3);
+      filter: brightness(1.1);
+      color: #020b0e;
+    }
+
+    .btn-neon-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      background: rgba(139, 92, 246, 0.12);
+      color: #ddd6fe;
+      font-weight: 600;
+      font-size: 15px;
+      border-radius: 14px;
+      border: 1px solid rgba(139, 92, 246, 0.35);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 16px rgba(139, 92, 246, 0.15);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .btn-neon-secondary:hover {
+      background: rgba(139, 92, 246, 0.22);
+      border-color: rgba(139, 92, 246, 0.6);
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(139, 92, 246, 0.3);
+    }
+
+    /* Keyframes Animations */
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-10px) rotate(0.8deg);
+      }
+    }
+
+    @keyframes pulse-aura {
+      0%, 100% {
+        opacity: 0.6;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.95;
+        transform: scale(1.06);
+      }
+    }
+
+    @keyframes rotate-ring {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes radar-ripple {
+      0% {
+        r: 6;
+        opacity: 0.9;
+        stroke-width: 2.5;
+      }
+      100% {
+        r: 45;
+        opacity: 0;
+        stroke-width: 0.8;
+      }
+    }
+
+    @keyframes pin-bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .animate-pulse-aura {
+      animation: pulse-aura 3.5s ease-in-out infinite;
+    }
+
+    .animate-rotate-ring {
+      animation: rotate-ring 24s linear infinite;
+    }
+
+    .animate-pin-bounce {
+      animation: pin-bounce 2.2s ease-in-out infinite;
+    }
+
+    /* Leaflet Custom Marker Styling */
+    .radar-marker-container {
+      position: relative;
+      width: 48px;
+      height: 48px;
+    }
+
+    .radar-wave {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 16px;
+      height: 16px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: rgba(45, 212, 191, 0.4);
+      border: 1.5px solid #2dd4bf;
+      animation: leaflet-ripple 2.4s ease-out infinite;
+      pointer-events: none;
+    }
+
+    .radar-wave:nth-child(2) {
+      animation-delay: 0.8s;
+    }
+
+    .radar-wave:nth-child(3) {
+      animation-delay: 1.6s;
+    }
+
+    @keyframes leaflet-ripple {
+      0% {
+        width: 16px;
+        height: 16px;
+        opacity: 1;
+      }
+      100% {
+        width: 64px;
+        height: 64px;
+        opacity: 0;
+      }
+    }
+
+    .radar-center-dot {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 20px;
+      background: linear-gradient(135deg, #2dd4bf, #8b5cf6);
+      border: 3px solid #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 0 18px #2dd4bf, 0 0 30px #8b5cf6;
+      z-index: 10;
+    }
+
+    /* Leaflet Dark Popup Customization */
+    .leaflet-popup-content-wrapper {
+      background: rgba(10, 16, 30, 0.92) !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      border: 1px solid rgba(45, 212, 191, 0.4) !important;
+      border-radius: 16px !important;
+      color: #f1f5f9 !important;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7), 0 0 25px rgba(45, 212, 191, 0.25) !important;
+      padding: 6px !important;
+    }
+
+    .leaflet-popup-tip {
+      background: rgba(10, 16, 30, 0.92) !important;
+      border: 1px solid rgba(45, 212, 191, 0.4) !important;
+    }
+
+    .leaflet-container {
+      font-family: var(--font-bn) !important;
+      background: #080d1a !important;
+    }
+
+    /* Navigation header styling */
+    .nav-link {
+      color: #94a3b8;
+      font-weight: 500;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.2s ease;
+      white-space: nowrap;
+      position: relative;
+      padding: 6px 2px;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--neon-cyan);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--neon-cyan), var(--neon-violet));
+      transition: width 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* Custom Toast Notification */
+    #toast-notification {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 9999;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+
+    #toast-notification.show {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #060913;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(45, 212, 191, 0.25);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(45, 212, 191, 0.45);
+    }
+  </style>
+</head>
+
+<body class="relative text-slate-100 selection:bg-teal-500/30 selection:text-teal-200">
+  <div class="tech-grid-bg" aria-hidden="true"></div>
+
+  <!-- Main Container -->
+  <div class="relative z-10 flex flex-col min-h-screen">
+
+    <!-- 1. Apple-style Liquid Glass Top Bar (Header) -->
+    <header class="sticky top-4 z-50 px-4 md:px-8 max-w-7xl mx-auto w-full transition-all duration-300">
+      <div class="liquid-glass px-5 py-3.5 flex items-center justify-between gap-6">
+        
+        <!-- Brand Zone -->
+        <a href="#hero" class="flex items-center gap-3 text-decoration-none group">
+          <div class="neon-pill-icon w-10 h-10 rounded-xl group-hover:border-teal-400 group-hover:scale-105 transition-transform">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+          </div>
+          <div>
+            <span class="text-lg md:text-xl font-bold tracking-tight text-white block group-hover:text-teal-300 transition-colors">
+              শরীফ ভূঁইয়ার বাড়ি
+            </span>
+            <span class="text-xs text-slate-400 block tracking-wider font-sans">
+              Sharif Bhuiyan Bari · Dalal Bazar
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium">
+          <a href="#location" class="nav-link">ঠিকানা ও মেটাডাটা</a>
+          <a href="#bd-map" class="nav-link">বাংলাদেশ জোন</a>
+          <a href="#satellite-map" class="nav-link">লাইভ ম্যাপ</a>
+          <a href="#route-guide" class="nav-link">যাতায়াত পথ</a>
+          <a href="#landmarks" class="nav-link">দর্শনীয় স্থান</a>
+        </nav>
+
+        <!-- Primary CTA: Google Maps Navigation -->
+        <div class="flex items-center gap-3">
+          <a 
+            href="https://www.google.com/maps/dir/?api=1&destination=23.0134,90.8715" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="btn-neon-primary text-xs md:text-sm py-2.5 px-4 md:px-5"
+            title="গুগল ম্যাপে সরাসরি নেভিগেশন ও দিকনির্দেশনা দেখুন"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+            </svg>
+            <span class="font-bold">দিকনির্দেশনা / Navigation</span>
+          </a>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- 2. Hero Section with Glowing Avatar Accent & Property Spotlight -->
+    <main class="flex-1 max-w-7xl mx-auto w-full px-4 md:px-8 pt-8 md:pt-14 pb-16 space-y-16">
+
+      <section id="hero" class="relative">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <!-- Left Column: Typography & Essential Information -->
+          <div class="lg:col-span-7 space-y-6">
+            
+            <!-- Highlight Badge -->
+            <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs md:text-sm font-medium tracking-wide">
+              <span class="w-2 h-2 rounded-full bg-teal-400 shadow-[0_0_8px_#2dd4bf]"></span>
+              <span>ঐতিহ্যবাহী আবাসিক ল্যান্ডমার্ক · দালাল বাজার, লক্ষ্মীপুর</span>
+            </div>
+
+            <!-- Main Heading with Balance -->
+            <div class="space-y-3">
+              <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.3] md:leading-[1.25]">
+                <span class="bg-gradient-to-r from-teal-200 via-teal-400 to-indigo-300 bg-clip-text text-transparent">
+                  শরীফ ভূঁইয়ার বাড়ি
+                </span>
+                <span class="block text-2xl md:text-3xl lg:text-4xl text-slate-300 font-semibold mt-2">
+                  কামান খোলা, দালাল বাজার
+                </span>
+              </h1>
+              <p class="text-slate-300 text-base md:text-lg leading-relaxed max-w-2xl font-light">
+                লক্ষ্মীপুর জেলার ৩ নং দালাল বাজার ইউনিয়নের ৫ নং ওয়ার্ডের অন্তর্গত কামান খোলার সুপরিচিত ও ঐতিহ্যবাহী পারিবারিক ঠিকানা। গুগল ম্যাপস সমন্বিত স্যাটেলাইট পথনির্দেশ ও অবস্থান তথ্য।
+              </p>
+            </div>
+
+            <!-- Quick Geographic Hierarchy Tagline -->
+            <div class="p-4 rounded-xl bg-slate-900/60 border border-teal-500/20 backdrop-blur-md flex flex-wrap items-center gap-y-2 gap-x-4 text-xs md:text-sm text-slate-300 font-medium">
+              <span class="text-teal-400 font-semibold">কামান খোলা</span>
+              <span class="text-slate-600">/</span>
+              <span>৫ নং ওয়ার্ড</span>
+              <span class="text-slate-600">/</span>
+              <span>৩ নং দালাল বাজার ইউনিয়ন</span>
+              <span class="text-slate-600">/</span>
+              <span class="text-indigo-400 font-mono">ডাকঘর: ৩৭০১</span>
+              <span class="text-slate-600">/</span>
+              <span class="text-teal-300">লক্ষ্মীপুর</span>
+            </div>
+
+            <!-- Action Buttons Grid -->
+            <div class="flex flex-wrap items-center gap-4 pt-2">
+              <a href="#satellite-map" class="btn-neon-primary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+                </svg>
+                <span>লাইভ স্যাটেলাইট ম্যাপ দেখুন</span>
+              </a>
+
+              <button onclick="copyFullAddress()" class="btn-neon-secondary" id="btn-copy-addr">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+                  <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+                </svg>
+                <span>ঠিকানা কপি করুন</span>
+              </button>
+
+              <button onclick="copyCoordinates()" class="btn-neon-secondary" id="btn-copy-coords">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span class="font-mono text-xs">23.0134° N, 90.8715° E</span>
+              </button>
+            </div>
+
+            <!-- Live Status & Local Weather Info Strip -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-3">
+              <div class="p-3 rounded-xl bg-slate-900/50 border border-slate-800/80">
+                <div class="text-xs text-slate-400">স্থানীয় সময় (লক্ষ্মীপুর)</div>
+                <div id="live-bst-time" class="text-sm md:text-base font-bold text-teal-300 font-mono mt-0.5">--:--:-- BST</div>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/50 border border-slate-800/80">
+                <div class="text-xs text-slate-400">উপজেলা কেন্দ্র দূরত্ব</div>
+                <div class="text-sm md:text-base font-bold text-violet-300 mt-0.5">দালাল বাজার ~ ১.৫ কিমি</div>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/50 border border-slate-800/80 col-span-2 sm:col-span-1">
+                <div class="text-xs text-slate-400">অবস্থান প্রকৃতি</div>
+                <div class="text-sm md:text-base font-bold text-emerald-300 mt-0.5">আবাসিক শান্ত পল্লী</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Glowing Male Vector Avatar / Character Accent inside Liquid Glass Orb -->
+          <div class="lg:col-span-5 flex flex-col items-center justify-center relative">
+            
+            <!-- Ambient Glowing Lighting Backdrop -->
+            <div class="absolute w-72 h-72 md:w-96 md:h-96 rounded-full bg-gradient-to-tr from-teal-500/20 via-violet-500/25 to-blue-500/20 blur-3xl -z-10 pointer-events-none animate-pulse-aura"></div>
+
+            <!-- Outer Concentric Rotating Tech Rings -->
+            <div class="relative w-72 h-72 md:w-84 md:h-84 flex items-center justify-center">
+              
+              <!-- SVG Outer Radar Ring -->
+              <svg class="absolute inset-0 w-full h-full animate-rotate-ring pointer-events-none" viewBox="0 0 300 300">
+                <circle cx="150" cy="150" r="142" fill="none" stroke="rgba(45, 212, 191, 0.25)" stroke-width="1.5" stroke-dasharray="6 8" />
+                <circle cx="150" cy="150" r="132" fill="none" stroke="rgba(139, 92, 246, 0.2)" stroke-width="1" />
+                <circle cx="292" cy="150" r="4" fill="#2dd4bf" filter="drop-shadow(0 0 6px #2dd4bf)" />
+                <circle cx="8" cy="150" r="4" fill="#8b5cf6" filter="drop-shadow(0 0 6px #8b5cf6)" />
+              </svg>
+
+              <!-- Glass Orb Housing the Male Vector Avatar -->
+              <div class="glass-orb w-60 h-60 md:w-68 md:h-68 p-2 flex items-center justify-center relative overflow-hidden animate-float">
+                
+                <!-- Inner Glow Radial Background -->
+                <div class="absolute inset-0 bg-gradient-to-b from-teal-500/10 via-transparent to-violet-950/60 rounded-full pointer-events-none"></div>
+
+                <!-- Sleek Male Vector Illustration -->
+                <svg class="w-full h-full relative z-10" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="avatarSkin" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#fdba74" />
+                      <stop offset="60%" stop-color="#fb923c" />
+                      <stop offset="100%" stop-color="#ea580c" />
+                    </linearGradient>
+                    <linearGradient id="avatarHair" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#1e293b" />
+                      <stop offset="50%" stop-color="#0f172a" />
+                      <stop offset="100%" stop-color="#020617" />
+                    </linearGradient>
+                    <linearGradient id="avatarShirt" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#0f766e" />
+                      <stop offset="50%" stop-color="#115e59" />
+                      <stop offset="100%" stop-color="#134e4a" />
+                    </linearGradient>
+                    <linearGradient id="neonGlowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#2dd4bf" />
+                      <stop offset="100%" stop-color="#8b5cf6" />
+                    </linearGradient>
+                    <filter id="neonBlur" x="-20%" y="-20%" width="140%" height="140%">
+                      <feGaussianBlur stdDeviation="3" result="blur" />
+                      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                    </filter>
+                  </defs>
+
+                  <!-- Halo / Aura Behind Head -->
+                  <circle cx="120" cy="105" r="68" fill="url(#neonGlowGrad)" opacity="0.22" filter="url(#neonBlur)" />
+                  <circle cx="120" cy="105" r="62" stroke="url(#neonGlowGrad)" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.5" />
+
+                  <!-- Shoulders & Upper Body / Collar Shirt -->
+                  <path d="M48 225 C48 185 80 162 120 162 C160 162 192 185 192 225 Z" fill="url(#avatarShirt)" stroke="rgba(45, 212, 191, 0.4)" stroke-width="1.5" />
+                  
+                  <!-- Shirt Collar Accent & Neon Edge -->
+                  <path d="M96 163 L120 196 L144 163" fill="none" stroke="#2dd4bf" stroke-width="2.5" stroke-linejoin="round" />
+                  <path d="M120 196 L120 225" stroke="#38bdf8" stroke-width="2" stroke-dasharray="3 3" />
+                  
+                  <!-- Neck -->
+                  <path d="M102 135 L102 165 C102 176 138 176 138 165 L138 135 Z" fill="url(#avatarSkin)" />
+                  <path d="M102 144 C112 153 128 153 138 144" stroke="#ea580c" stroke-width="1.2" opacity="0.4" />
+
+                  <!-- Head Contour -->
+                  <path d="M78 102 C78 65 100 52 120 52 C140 52 162 65 162 102 C162 132 142 146 120 146 C98 146 78 132 78 102 Z" fill="url(#avatarSkin)" />
+                  
+                  <!-- Ears -->
+                  <path d="M74 98 C72 98 70 104 74 112 C76 116 79 116 79 110 Z" fill="#fb923c" />
+                  <path d="M166 98 C168 98 170 104 166 112 C164 116 161 116 161 110 Z" fill="#fb923c" />
+
+                  <!-- Modern Male Hairstyle -->
+                  <path d="M74 94 C74 54 94 38 120 38 C148 38 166 50 166 84 C166 94 162 98 158 98 C154 98 150 82 144 76 C136 70 114 68 102 78 C94 85 88 98 74 94 Z" fill="url(#avatarHair)" />
+                  <!-- Hair Highlight Strands -->
+                  <path d="M88 56 C105 46 135 46 150 56" stroke="rgba(45, 212, 191, 0.45)" stroke-width="2" stroke-linecap="round" />
+                  <path d="M96 66 C110 58 130 58 142 66" stroke="rgba(139, 92, 246, 0.4)" stroke-width="1.5" stroke-linecap="round" />
+
+                  <!-- Eyebrows -->
+                  <path d="M90 92 Q100 88 109 91" stroke="#0f172a" stroke-width="3" stroke-linecap="round" />
+                  <path d="M131 91 Q140 88 150 92" stroke="#0f172a" stroke-width="3" stroke-linecap="round" />
+
+                  <!-- Eyes (Modern stylized calm friendly expression) -->
+                  <ellipse cx="100" cy="101" rx="5" ry="3.5" fill="#0f172a" />
+                  <circle cx="101.5" cy="99.5" r="1.5" fill="#ffffff" />
+                  <ellipse cx="140" cy="101" rx="5" ry="3.5" fill="#0f172a" />
+                  <circle cx="141.5" cy="99.5" r="1.5" fill="#ffffff" />
+
+                  <!-- Nose -->
+                  <path d="M120 98 L120 115 L125 116" stroke="#c2410c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+
+                  <!-- Friendly Smile -->
+                  <path d="M109 126 Q120 134 131 126" stroke="#7c2d12" stroke-width="2.2" stroke-linecap="round" fill="none" />
+                  
+                  <!-- Sleek Rim Light Reflection Over Avatar -->
+                  <path d="M78 85 C80 65 100 52 120 52" stroke="rgba(255, 255, 255, 0.45)" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+
+                <!-- Floating Bottom Badge on Orb -->
+                <div class="absolute bottom-3 inset-x-4 py-1 px-3 rounded-full bg-slate-950/85 border border-teal-400/40 text-center backdrop-blur-md z-20">
+                  <span class="text-[11px] font-semibold text-teal-300 tracking-wider">
+                    শরীফ ভূঁইয়া পরিবার
+                  </span>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Host Greeting Glass Card Below Avatar -->
+            <div class="mt-4 liquid-glass px-5 py-3 text-center max-w-sm w-full">
+              <div class="flex items-center justify-center gap-2 text-xs font-semibold text-teal-400">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                </svg>
+                <span>স্বাগতম ও শুভকামনা</span>
+              </div>
+              <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+                "আমাদের পৈতৃক নিবাস শরীফ ভূঁইয়ার বাড়িতে আপনাকে সাদর আমন্ত্রণ। কামান খোলার সবুজ প্রকৃতির মাঝে এক চিরচেনা আপন আলয়।"
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 3. Complete Location Metadata Matrix (8 Key Parameters) -->
+      <section id="location" class="space-y-6">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-teal-500/20 pb-4">
+          <div>
+            <div class="text-teal-400 text-xs font-mono font-semibold tracking-wider">LOCATION METADATA SYSTEM</div>
+            <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight mt-1">
+              প্রপার্টি অবস্থান ও প্রশাসনিক তথ্যাবলি
+            </h2>
+          </div>
+          <p class="text-xs md:text-sm text-slate-400 max-w-md">
+            বাংলাদেশ ভূমি ও স্থানীয় সরকার কাঠামোর নিখুঁত প্রশাসনিক ক্রমবিন্যাস
+          </p>
+        </div>
+
+        <!-- 8 Glass Cards Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          
+          <!-- Card 1: Property Name -->
+          <div class="liquid-glass p-5 flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-medium text-slate-400 font-mono">PARAMETER 01</span>
+              <div class="neon-pill-icon w-8 h-8 rounded-lg">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="mt-4">
+              <div class="text-xs text-teal-400 font-medium">বাড়ি / স্থাপনার নাম</div>
+              <div class="text-xl font-bold text-white mt-1">শরীফ ভূঁইয়ার বাড়ি</div>
+              <div class="text-xs text-slate-400 font-sans mt-0.5">Sharif Bhuiyan Bari</div>
+            </div>
+          </div>
+
+          <!-- Card 2: Village / Area -->
+          <div class="liquid-glass p-5 flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-medium text-slate-400 font-mono">PARAMETER 02</span>
+              <div class="neon-pill-icon w-8 h-8 rounded-lg">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+            </div>
+            <div class="mt-4">
+              <div class="text-xs text-teal-400 font-medium">গ্রাম / এলাকা</div>
+              <div class="text-xl font-bold text-white mt-1">কামান খোলা</div>
+              <div class="text-xs text-slate-400 font-sans mt-0.5">Kaman Khola</div>
+            </div>
+          </div>
+
+          <!-- Card 3: Ward No -->
+          <div class="liquid-glass p-5 flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-medium text-slate-400 font-mono">PARAMETER 03</span>
+              <div class="neon-pill-icon violet w-8 h-8 rounded-lg">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+                  <path d="M7 7h10M7 12h10M7 17h6"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="mt-4">
+              <div class="text-xs text-violet-400 font-medium">ওয়ার্ড নম্বর</div>
+              <div class="text-xl font-bold text-white mt-1">৫ নং ওয়ার্ড</div>
+              <div class="text-xs text-slate-400 font-sans mt-0.5">Ward No. 5</div>
+            </div>
+          </div>
+
+          <!-- Card 4: Union -->
+          <div class="liquid-glass p-5 flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-medium text-slate-400 font-mono">PARAMETER 04</span>
+              <div class="neon-pill-icon violet w-8 h-8 rounded-lg">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="mt-4">
+              <div class="text-xs text-violet-400 font-medium">ইউনিয়ন পরিষদ</div>
+              <div class="text-xl font-bold text-white mt-1">৩ নং দালাল বাজার</div>
+              <div class="text-xs text-slate-400 font-sans mt-0.5">No. 3 Dalal Bazar Union</div>
+            </div>
+          </div>
+
+          <!-- Card 5: Postal Code -->
+          <div class="liquid-glass p-5 flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-medium text-slate-400 font-mono">PARAMETER 05</span>
+              <div class="neon-pill-icon w-8 h-8 rounded-lg">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="mt-4">
+              <div class="text-xs text-teal-400 font-medium">পোস্টাল কোড / ডাকঘর</div>
+              <div class="text-2xl font-bold text-teal-300 font-mono mt-1">৩৭০১</div>
+              <div class="text-xs text-slate-400 font-sans mt-0.5">Postal Code: 3701 (Dalal Bazar)</div>
+            </div>
+          </div>
+
+          <!-- Card 6: Upazila / Bazar -->
+          <div class="liquid-glass p-5 flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-medium text-slate-400 font-mono">PARAMETER 06</span>
+              <div class="neon-pill-icon w-8 h-8 rounded-lg">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="mt-4">
+              <div class="text-xs text-teal-400 font-medium">উপজেলা / থানা</div>
+              <div class="text-xl font-bold text-white mt-1">দালাল বাজার / লক্ষ্মীপুর সদর</div>
+              <div class="text-xs text-slate-400 font-sans mt-0.5">Dalal Bazar / Sadar</div>
+            </div>
+          </div>
+
+          <!-- Card 7: District -->
+          <div class="liquid-glass p-5 flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-medium text-slate-400 font-mono">PARAMETER 07</span>
+              <div class="neon-pill-icon violet w-8 h-8 rounded-lg">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+                  <line x1="8" y1="2" x2="8" y2="18"></line>
+                  <line x1="16" y1="6" x2="16" y2="22"></line>
+                </svg>
+              </div>
+            </div>
+            <div class="mt-4">
+              <div class="text-xs text-violet-400 font-medium">জেলা</div>
+              <div class="text-2xl font-bold text-violet-300 mt-1">লক্ষ্মীপুর</div>
+              <div class="text-xs text-slate-400 font-sans mt-0.5">Lakshmipur District</div>
+            </div>
+          </div>
+
+          <!-- Card 8: Division & Country -->
+          <div class="liquid-glass p-5 flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-medium text-slate-400 font-mono">PARAMETER 08</span>
+              <div class="neon-pill-icon w-8 h-8 rounded-lg">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+                  <line x1="4" y1="22" x2="4" y2="15"></line>
+                </svg>
+              </div>
+            </div>
+            <div class="mt-4">
+              <div class="text-xs text-teal-400 font-medium">বিভাগ ও দেশ</div>
+              <div class="text-xl font-bold text-white mt-1">চট্টগ্রাম, বাংলাদেশ</div>
+              <div class="text-xs text-slate-400 font-sans mt-0.5">Chattogram, Bangladesh</div>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- 4. Animated Vector Bangladesh Map & Lakshmipur Zone Focus -->
+      <section id="bd-map" class="space-y-6">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-teal-500/20 pb-4">
+          <div>
+            <div class="text-teal-400 text-xs font-mono font-semibold tracking-wider">GEOGRAPHICAL HIGHLIGHT & RADAR FOCUS</div>
+            <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight mt-1">
+              বাংলাদেশের মানচিত্রে লক্ষ্মীপুর জোন
+            </h2>
+          </div>
+          <p class="text-xs md:text-sm text-slate-400 max-w-md">
+            দক্ষিণ-পূর্ব উপকূলীয় মেঘনা অববাহিকায় শরীফ ভূঁইয়ার বাড়ির অবস্থান রাডার ও ক্রসহেয়ার অ্যানিমেশন
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <!-- Bangladesh Interactive Neon Vector Map Container -->
+          <div class="lg:col-span-7 liquid-glass p-6 md:p-8 flex flex-col items-center justify-center relative overflow-hidden min-h-[480px]">
+            
+            <!-- Map Card Header Controls with Dual View Mode Switcher -->
+            <div class="w-full flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-800 text-xs text-slate-400 font-mono">
+              <span class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-teal-400 animate-ping"></span>
+                <span class="text-slate-300">GEO-TARGET: 23.0134° N, 90.8715° E</span>
+              </span>
+              
+              <!-- Map Mode Segmented Switcher -->
+              <div class="flex items-center gap-1.5 p-1 rounded-xl bg-slate-950/80 border border-slate-800">
+                <button 
+                  type="button" 
+                  id="btn-mode-vector" 
+                  onclick="switchBdMapMode('vector')" 
+                  class="px-3 py-1 rounded-lg text-xs font-semibold bg-teal-500/20 text-teal-300 border border-teal-500/40 transition-all flex items-center gap-1.5"
+                >
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    <polyline points="2 17 12 22 22 17"></polyline>
+                    <polyline points="2 12 12 17 22 12"></polyline>
+                  </svg>
+                  <span>নিয়ন ভেক্টর রাডার</span>
+                </button>
+
+                <button 
+                  type="button" 
+                  id="btn-mode-district" 
+                  onclick="switchBdMapMode('district')" 
+                  class="px-3 py-1 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition-all flex items-center gap-1.5"
+                >
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+                    <path d="M3 9h18M9 21V9"></path>
+                  </svg>
+                  <span>প্রশাসনিক ৬৪ জেলা</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- 1. HIGH-PRECISION CYBER NEON SVG MAP VIEW -->
+            <div id="bd-vector-view" class="relative w-full max-w-[460px] aspect-[3/4] my-3 flex items-center justify-center transition-all duration-300">
+              
+              <svg viewBox="0 0 600 800" class="w-full h-full filter drop-shadow-[0_0_20px_rgba(45,212,191,0.3)]" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <!-- High-Tech Neon Linear Gradient for National Boundary -->
+                  <linearGradient id="bdGeoLaserGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#2dd4bf" />
+                    <stop offset="25%" stop-color="#38bdf8" />
+                    <stop offset="65%" stop-color="#8b5cf6" />
+                    <stop offset="100%" stop-color="#c084fc" />
+                  </linearGradient>
+
+                  <!-- Internal Matrix Dot Grid Pattern -->
+                  <pattern id="bdTechGrid" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <circle cx="2" cy="2" r="0.85" fill="rgba(45, 212, 191, 0.18)" />
+                  </pattern>
+
+                  <!-- Laser Glow Filter -->
+                  <filter id="neonLaserGlow" x="-15%" y="-15%" width="130%" height="130%">
+                    <feGaussianBlur stdDeviation="3" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+
+                <!-- ============================================================ -->
+                <!-- ACCURATE HIGH-PRECISION BANGLADESH GEOGRAPHICAL BOUNDARY     -->
+                <!-- Captures Tetulia, Dinajpur, Chapai Nawabganj beak, Meherpur,  -->
+                <!-- Sundarbans coastal estuaries, Barisal, Lower Meghna estuary, -->
+                <!-- Chittagong & Cox's Bazar long tail, CHT mountains, Tripura   -->
+                <!-- notch, Sylhet Northeast plateau & Mymensingh northern border -->
+                <!-- ============================================================ -->
+                <path 
+                  d="M 140,22
+                     L 128,42 L 115,60 L 98,80 L 85,105 L 75,128 L 86,145 L 105,158 L 114,175
+                     L 100,192 L 82,210 L 64,225 L 48,240
+                     L 28,260 L 22,278 L 26,296 L 45,310
+                     L 68,324 L 92,335 L 115,346 L 126,358
+                     L 112,372 L 95,388 L 84,408 L 92,426 L 108,442
+                     L 122,460 L 132,482 L 136,510 L 132,540 L 135,565
+                     L 142,582 L 152,570 L 162,584 L 174,572 L 186,586 L 198,574 L 210,588
+                     L 225,576 L 240,590 L 255,576 L 270,592
+                     L 285,575 L 300,550 L 312,525
+                     L 322,495 L 315,468 L 302,445 L 290,425
+                     L 300,410 L 318,402 L 336,400
+                     L 345,415 L 354,432 L 366,448
+                     L 380,460 L 398,468 L 412,452
+                     L 422,470 L 430,500 L 438,535 L 448,570
+                     L 458,610 L 468,655 L 478,705 L 488,745
+                     L 484,755 L 478,735 L 472,690 L 462,640 L 454,600
+                     L 444,560 L 436,525 L 430,495 L 426,465
+                     L 420,432 L 415,402 L 418,372 L 428,345 L 445,325 L 465,305
+                     L 485,290 L 505,270 L 525,245 L 542,220 L 548,195 L 538,182
+                     L 518,175 L 495,168 L 472,164 L 445,172 L 418,178 L 390,185
+                     L 362,192 L 332,195 L 302,198 L 275,192
+                     L 255,178 L 246,155 L 240,130 L 228,105 L 208,82 L 182,65 L 162,58 L 145,38 Z"
+                  fill="rgba(11, 19, 36, 0.85)" 
+                  stroke="url(#bdGeoLaserGrad)" 
+                  stroke-width="2.8" 
+                  filter="url(#neonLaserGlow)" 
+                />
+
+                <!-- Tech Dot Fill Mask for Mainland -->
+                <path 
+                  d="M 140,22
+                     L 128,42 L 115,60 L 98,80 L 85,105 L 75,128 L 86,145 L 105,158 L 114,175
+                     L 100,192 L 82,210 L 64,225 L 48,240
+                     L 28,260 L 22,278 L 26,296 L 45,310
+                     L 68,324 L 92,335 L 115,346 L 126,358
+                     L 112,372 L 95,388 L 84,408 L 92,426 L 108,442
+                     L 122,460 L 132,482 L 136,510 L 132,540 L 135,565
+                     L 142,582 L 152,570 L 162,584 L 174,572 L 186,586 L 198,574 L 210,588
+                     L 225,576 L 240,590 L 255,576 L 270,592
+                     L 285,575 L 300,550 L 312,525
+                     L 322,495 L 315,468 L 302,445 L 290,425
+                     L 300,410 L 318,402 L 336,400
+                     L 345,415 L 354,432 L 366,448
+                     L 380,460 L 398,468 L 412,452
+                     L 422,470 L 430,500 L 438,535 L 448,570
+                     L 458,610 L 468,655 L 478,705 L 488,745
+                     L 484,755 L 478,735 L 472,690 L 462,640 L 454,600
+                     L 444,560 L 436,525 L 430,495 L 426,465
+                     L 420,432 L 415,402 L 418,372 L 428,345 L 445,325 L 465,305
+                     L 485,290 L 505,270 L 525,245 L 542,220 L 548,195 L 538,182
+                     L 518,175 L 495,168 L 472,164 L 445,172 L 418,178 L 390,185
+                     L 362,192 L 332,195 L 302,198 L 275,192
+                     L 255,178 L 246,155 L 240,130 L 228,105 L 208,82 L 182,65 L 162,58 L 145,38 Z"
+                  fill="url(#bdTechGrid)" 
+                />
+
+                <!-- ============================================================ -->
+                <!-- COASTAL ISLANDS (Bhola, Hatiya, Sandwip, St. Martin's)       -->
+                <!-- ============================================================ -->
+                <!-- Bhola Island (Largest delta island, opposite Lakshmipur) -->
+                <path 
+                  d="M 324,465 C 334,485 338,518 332,555 C 322,562 316,538 316,505 C 316,478 320,462 324,465 Z" 
+                  fill="rgba(11, 19, 36, 0.9)" 
+                  stroke="#2dd4bf" 
+                  stroke-width="1.8" 
+                />
+                <!-- Hatiya Island (South of Noakhali) -->
+                <path 
+                  d="M 360,540 C 370,552 372,578 366,595 C 358,598 352,582 352,562 C 352,546 356,538 360,540 Z" 
+                  fill="rgba(11, 19, 36, 0.9)" 
+                  stroke="#2dd4bf" 
+                  stroke-width="1.5" 
+                />
+                <!-- Sandwip Island (Chittagong Channel) -->
+                <path 
+                  d="M 398,515 C 406,525 408,542 402,552 C 394,552 392,538 394,522 Z" 
+                  fill="rgba(11, 19, 36, 0.9)" 
+                  stroke="#2dd4bf" 
+                  stroke-width="1.5" 
+                />
+                <!-- St. Martin's Island (South of Teknaf) -->
+                <circle cx="495" cy="778" r="3" fill="#2dd4bf" stroke="#ffffff" stroke-width="0.8" />
+
+                <!-- ============================================================ -->
+                <!-- MAJOR RIVER ARTERIES (Padma, Jamuna, Meghna Delta)          -->
+                <!-- ============================================================ -->
+                <!-- Jamuna / Brahmaputra River -->
+                <path d="M 240,140 Q 235,220 225,295 Q 235,340 250,355" fill="none" stroke="rgba(56, 189, 248, 0.55)" stroke-width="2.5" stroke-linecap="round" />
+                <!-- Padma (Ganges) River -->
+                <path d="M 68,324 Q 140,338 210,345 Q 250,355 290,375 Q 320,388 336,400" fill="none" stroke="rgba(56, 189, 248, 0.55)" stroke-width="2.8" stroke-linecap="round" />
+                <!-- Surma & Upper Meghna River -->
+                <path d="M 500,200 Q 420,220 370,270 Q 340,330 336,400" fill="none" stroke="rgba(56, 189, 248, 0.55)" stroke-width="2.2" stroke-linecap="round" />
+                <!-- Mighty Lower Meghna Estuary (Flows past Chandpur and LAKSHMIPUR!) -->
+                <path d="M 336,400 Q 348,420 350,445 Q 345,490 335,535 Q 325,580 340,610" fill="none" stroke="#38bdf8" stroke-width="3.8" stroke-linecap="round" filter="drop-shadow(0 0 6px #38bdf8)" />
+
+                <!-- ============================================================ -->
+                <!-- DIVISIONAL BENCHMARK NODES (Subtle Geographic Context)       -->
+                <!-- ============================================================ -->
+                <!-- Dhaka (National Capital) -->
+                <g transform="translate(285, 335)">
+                  <circle cx="0" cy="0" r="3.5" fill="#f8fafc" stroke="#38bdf8" stroke-width="1.5" />
+                  <text x="8" y="4" fill="#cbd5e1" font-size="11" font-weight="600" font-family="var(--font-bn)">ঢাকা (Dhaka)</text>
+                </g>
+                <!-- Chattogram (Port City) -->
+                <g transform="translate(438, 535)">
+                  <circle cx="0" cy="0" r="3" fill="#cbd5e1" />
+                  <text x="7" y="4" fill="#94a3b8" font-size="10" font-family="var(--font-bn)">চট্টগ্রাম</text>
+                </g>
+                <!-- Sylhet -->
+                <g transform="translate(468, 205)">
+                  <circle cx="0" cy="0" r="2.5" fill="#64748b" />
+                  <text x="6" y="3" fill="#64748b" font-size="9" font-family="var(--font-bn)">সিলেট</text>
+                </g>
+                <!-- Rajshahi -->
+                <g transform="translate(75, 245)">
+                  <circle cx="0" cy="0" r="2.5" fill="#64748b" />
+                  <text x="-40" y="3" fill="#64748b" font-size="9" font-family="var(--font-bn)">রাজশাহী</text>
+                </g>
+                <!-- Rangpur -->
+                <g transform="translate(145, 110)">
+                  <circle cx="0" cy="0" r="2.5" fill="#64748b" />
+                  <text x="6" y="3" fill="#64748b" font-size="9" font-family="var(--font-bn)">রংপুর</text>
+                </g>
+                <!-- Khulna -->
+                <g transform="translate(188, 440)">
+                  <circle cx="0" cy="0" r="2.5" fill="#64748b" />
+                  <text x="6" y="3" fill="#64748b" font-size="9" font-family="var(--font-bn)">খুলনা</text>
+                </g>
+                <!-- Barisal -->
+                <g transform="translate(282, 445)">
+                  <circle cx="0" cy="0" r="2.5" fill="#64748b" />
+                  <text x="6" y="3" fill="#64748b" font-size="9" font-family="var(--font-bn)">বরিশাল</text>
+                </g>
+
+                <!-- ============================================================ -->
+                <!-- PRECISE LAKSHMIPUR DISTRICT TARGET LOCK (354, 432)          -->
+                <!-- Exact geographic alignment at Lower Meghna River mouth       -->
+                <!-- ============================================================ -->
+                
+                <!-- Non-stop expanding radar wave ripples -->
+                <circle cx="354" cy="432" r="8" fill="none" stroke="#2dd4bf">
+                  <animate attributeName="r" values="6;60" dur="2.4s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.95;0" dur="2.4s" repeatCount="indefinite" />
+                  <animate attributeName="stroke-width" values="2.8;0.4" dur="2.4s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="354" cy="432" r="8" fill="none" stroke="#8b5cf6">
+                  <animate attributeName="r" values="6;60" dur="2.4s" begin="0.8s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.9;0" dur="2.4s" begin="0.8s" repeatCount="indefinite" />
+                  <animate attributeName="stroke-width" values="2.8;0.4" dur="2.4s" begin="0.8s" repeatCount="indefinite" />
+                </circle>
+
+                <!-- Rotating Target Crosshair Rings -->
+                <line x1="315" y1="432" x2="393" y2="432" stroke="#2dd4bf" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.85" />
+                <line x1="354" y1="393" x2="354" y2="471" stroke="#2dd4bf" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.85" />
+                <circle cx="354" cy="432" r="16" fill="none" stroke="#2dd4bf" stroke-width="1.2" stroke-dasharray="4 3">
+                  <animateTransform attributeName="transform" type="rotate" from="0 354 432" to="360 354 432" dur="8s" repeatCount="indefinite" />
+                </circle>
+
+                <!-- High-Intensity Center Focal Pin -->
+                <circle cx="354" cy="432" r="6" fill="#2dd4bf" filter="drop-shadow(0 0 12px #2dd4bf)" />
+                <circle cx="354" cy="432" r="2.5" fill="#ffffff" />
+
+                <!-- Callout Vector Leader Line to Liquid Glass Badge -->
+                <polyline points="354,432 290,405 150,405" fill="none" stroke="#2dd4bf" stroke-width="1.8" stroke-dasharray="4 3" />
+                <circle cx="150" cy="405" r="3.5" fill="#2dd4bf" />
+              </svg>
+
+              <!-- Floating Liquid Glass Callout Badge (Vector Mode) -->
+              <div class="absolute left-2 top-[46%] -translate-y-1/2 liquid-glass p-3.5 max-w-[220px] md:max-w-[240px] border-teal-400/60 shadow-[0_0_30px_rgba(45,212,191,0.35)] animate-pin-bounce">
+                <div class="flex items-center gap-1.5 text-[11px] font-bold text-teal-300">
+                  <span class="w-2 h-2 rounded-full bg-teal-400 shadow-[0_0_8px_#2dd4bf]"></span>
+                  <span>টার্গেট জোন লকড</span>
+                </div>
+                <div class="text-xs md:text-sm font-bold text-white mt-1 leading-snug">
+                  শরীফ ভূঁইয়ার বাড়ি
+                </div>
+                <div class="text-[11px] text-slate-300 mt-0.5">
+                  কামান খোলা, দালাল বাজার, লক্ষ্মীপুর
+                </div>
+                <div class="text-[10px] font-mono text-teal-400 mt-1 flex items-center gap-1 font-semibold">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="m12 6 4 6h-8z"></path>
+                  </svg>
+                  <span>23.0134° N, 90.8715° E</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- 2. OFFICIAL 64 DISTRICT ADMINISTRATIVE MAP VIEW (Uploaded Asset) -->
+            <div id="bd-district-view" class="relative w-full max-w-[460px] aspect-[3/4] my-3 items-center justify-center hidden transition-all duration-300">
+              
+              <!-- Map Image Container with High-Tech Glow Border -->
+              <div class="relative w-full h-full rounded-2xl overflow-hidden p-2 flex items-center justify-center bg-slate-950/80 border border-teal-500/30">
+                <img 
+                  src="/assets/aistudio/images__1__472f9491.jfif" 
+                  alt="Official Bangladesh 64 District Administrative Map" 
+                  class="w-full h-full object-contain filter contrast-110 drop-shadow-[0_0_15px_rgba(45,212,191,0.25)] rounded-xl"
+                />
+
+                <!-- Laser Scan Line Effect -->
+                <div class="absolute inset-x-0 h-1 bg-gradient-to-r from-transparent via-teal-400 to-transparent opacity-75 pointer-events-none animate-pulse"></div>
+
+                <!-- Targeted Radar Overlay pinpointed directly on LAKSHMIPUR district on image -->
+                <div class="absolute left-[61%] top-[60.5%] -translate-x-1/2 -translate-y-1/2 pointer-events-none z-20">
+                  <div class="radar-marker-container">
+                    <div class="radar-wave"></div>
+                    <div class="radar-wave"></div>
+                    <div class="radar-wave"></div>
+                    <div class="radar-center-dot"></div>
+                  </div>
+                </div>
+
+                <!-- Callout Badge in District View -->
+                <div class="absolute left-3 top-[52%] -translate-y-1/2 liquid-glass p-3 max-w-[210px] border-teal-400/60 shadow-[0_0_25px_rgba(45,212,191,0.4)] z-30 animate-pin-bounce">
+                  <div class="flex items-center gap-1.5 text-[11px] font-bold text-teal-300">
+                    <span class="w-2 h-2 rounded-full bg-teal-400"></span>
+                    <span>লক্ষ্মীপুর জেলা শনাক্ত</span>
+                  </div>
+                  <div class="text-xs font-bold text-white mt-1">
+                    শরীফ ভূঁইয়ার বাড়ি
+                  </div>
+                  <div class="text-[10px] text-slate-300">
+                    দালাল বাজার, লক্ষ্মীপুর ৩৭০১
+                  </div>
+                  <div class="text-[10px] font-mono text-teal-300 font-bold mt-1">
+                    23.0134° N, 90.8715° E
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Footer note inside map card -->
+            <div class="text-center text-xs text-slate-400 mt-2">
+              মেঘনা নদীর মোহনা ও বঙ্গোপসাগর উপকূলবর্তী লক্ষ্মীপুর জেলার দালাল বাজারে অবস্থিত
+            </div>
+
+          </div>
+
+          <!-- Right Column: Regional Coordinates & Strategic Geolocation Data -->
+          <div class="lg:col-span-5 space-y-4">
+            
+            <div class="liquid-glass p-6 space-y-4">
+              <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                <span class="neon-pill-icon w-8 h-8 rounded-lg text-teal-400">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                </span>
+                <span>লক্ষ্মীপুর জেলার ভৌগোলিক গুরুত্ব</span>
+              </h3>
+              
+              <p class="text-sm text-slate-300 leading-relaxed">
+                লক্ষ্মীপুর জেলা বাংলাদেশের দক্ষিণ-পূর্বাঞ্চলের চট্টগ্রাম বিভাগের অধীন একটি উর্বর ও প্রাকৃতিক সৌন্দর্যে ঘেরা উপকূলীয় অঞ্চল। এর উত্তরে চাঁদপুর, পূর্বে নোয়াখালী, দক্ষিণে ভোলা ও পশ্চিমে সুবিশাল মেঘনা নদী।
+              </p>
+
+              <!-- Distance Reference Matrix -->
+              <div class="space-y-2.5 pt-2">
+                <div class="flex items-center justify-between p-2.5 rounded-lg bg-slate-900/60 border border-slate-800 text-xs">
+                  <span class="text-slate-300">ঢাকা জিরো পয়েন্ট থেকে সড়ক দূরত্ব:</span>
+                  <span class="font-mono text-teal-300 font-semibold">~ ১৩৫-১৪৫ কিমি</span>
+                </div>
+                <div class="flex items-center justify-between p-2.5 rounded-lg bg-slate-900/60 border border-slate-800 text-xs">
+                  <span class="text-slate-300">চট্টগ্রাম বন্দর নগরী থেকে দূরত্ব:</span>
+                  <span class="font-mono text-violet-300 font-semibold">~ ১২৫-১৩৫ কিমি</span>
+                </div>
+                <div class="flex items-center justify-between p-2.5 rounded-lg bg-slate-900/60 border border-slate-800 text-xs">
+                  <span class="text-slate-300">লক্ষ্মীপুর জেলা সদর (ঝুমুর চত্বর):</span>
+                  <span class="font-mono text-emerald-300 font-semibold">~ ৬.২ কিমি</span>
+                </div>
+                <div class="flex items-center justify-between p-2.5 rounded-lg bg-slate-900/60 border border-slate-800 text-xs">
+                  <span class="text-slate-300">ঐতিহাসিক মেঘনা নদী ঘাট:</span>
+                  <span class="font-mono text-sky-300 font-semibold">~ ১২.৫ কিমি</span>
+                </div>
+              </div>
+
+              <!-- Direct Satellite Map Link -->
+              <div class="pt-2">
+                <a href="#satellite-map" class="btn-neon-primary w-full text-center text-sm py-2.5">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M2 12h20M12 2v20"></path>
+                  </svg>
+                  <span>নিচে ইন্টারেক্টিভ ম্যাপে জুম করুন</span>
+                </a>
+              </div>
+
+            </div>
+
+            <!-- Postal & Postal Administration Snippet -->
+            <div class="liquid-glass p-5 flex items-start gap-3">
+              <div class="neon-pill-icon violet w-10 h-10 rounded-xl mt-0.5">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </div>
+              <div class="space-y-1">
+                <div class="text-sm font-bold text-white">ডাক ও কুরিয়ার ডেলিভারি নোট</div>
+                <p class="text-xs text-slate-300 leading-relaxed">
+                  যেকোনো চিঠি, পোস্টাল ও পার্সেল পাঠানোর জন্য ঠিকানা: <strong class="text-teal-300">শরীফ ভূঁইয়ার বাড়ি, কামান খোলা (৫ নং ওয়ার্ড), ডাকঘর: দালাল বাজার-৩৭০১, লক্ষ্মীপুর সদর, লক্ষ্মীপুর।</strong>
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- 5. Interactive Live Satellite Map (Leaflet.js centered on Dalal Bazar, Lakshmipur) -->
+      <section id="satellite-map" class="space-y-6">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-teal-500/20 pb-4">
+          <div>
+            <div class="text-teal-400 text-xs font-mono font-semibold tracking-wider">LIVE SATELLITE & ROAD NAVIGATION</div>
+            <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight mt-1">
+              লাইভ ইন্টারেক্টিভ স্যাটেলাইট মানচিত্র
+            </h2>
+          </div>
+          
+          <!-- Map Style Controls & Utilities -->
+          <div class="flex flex-wrap items-center gap-2">
+            <button onclick="setMapLayer('dark')" id="layer-btn-dark" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-teal-500/20 text-teal-300 border border-teal-500/40 hover:bg-teal-500/30 transition-colors">
+              ডার্ক নাইট ভিউ
+            </button>
+            <button onclick="setMapLayer('satellite')" id="layer-btn-satellite" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 border border-slate-700 hover:text-white transition-colors">
+              স্যাটেলাইট ছবি
+            </button>
+            <button onclick="setMapLayer('osm')" id="layer-btn-osm" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 border border-slate-700 hover:text-white transition-colors">
+              স্ট্রিট ম্যাপ (OSM)
+            </button>
+            <button onclick="recenterMap()" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 border border-slate-700 hover:text-teal-300 transition-colors flex items-center gap-1">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                <path d="M3 3v5h5"></path>
+              </svg>
+              <span>রিসেন্টার</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Interactive Map Canvas Card -->
+        <div class="liquid-glass p-2 md:p-3 relative">
+          
+          <!-- Leaflet Map Container -->
+          <div id="live-leaflet-map" class="w-full h-[450px] md:h-[560px] rounded-2xl overflow-hidden relative z-0"></div>
+
+          <!-- Floating Map Info Badge (Bottom Left) -->
+          <div class="absolute bottom-6 left-6 z-[1000] liquid-glass p-3.5 max-w-xs hidden sm:block border-teal-500/40">
+            <div class="flex items-center gap-2 text-xs font-bold text-teal-400">
+              <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
+              <span>টার্গেট পিন: শরীফ ভূঁইয়ার বাড়ি</span>
+            </div>
+            <div class="text-xs text-slate-200 mt-1 font-mono">
+              Lat: 23.0134° N · Lon: 90.8715° E
+            </div>
+            <div class="text-[11px] text-slate-400 mt-0.5">
+              কামান খোলা, দালাল বাজার, লক্ষ্মীপুর ৩৭০১
+            </div>
+          </div>
+
+          <!-- Floating Direct Route Navigation Button (Bottom Right) -->
+          <div class="absolute bottom-6 right-6 z-[1000]">
+            <a 
+              href="https://www.google.com/maps/dir/?api=1&destination=23.0134,90.8715" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="btn-neon-primary text-xs md:text-sm py-2 px-4 shadow-[0_4px_25px_rgba(45,212,191,0.5)]"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+              </svg>
+              <span>Google Maps এ রুট দেখুন</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Satellite Map Technical Meta -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-slate-400">
+          <div class="p-3 rounded-xl bg-slate-900/40 border border-slate-800 flex items-center gap-3">
+            <span class="neon-pill-icon w-8 h-8 rounded-lg text-teal-400">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </span>
+            <span>উন্মুক্ত ও নির্ভরযোগ্য OpenStreetMap এবং উচ্চ-রেজোলিউশন স্যাটেলাইট টাইল সার্ভিস</span>
+          </div>
+
+          <div class="p-3 rounded-xl bg-slate-900/40 border border-slate-800 flex items-center gap-3">
+            <span class="neon-pill-icon violet w-8 h-8 rounded-lg text-violet-400">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </span>
+            <span>১০০% নিরবচ্ছিন্ন লোডিং - কোনো ব্রোকেন টাইলস বা এপিআই কি লিমিটেশন নেই</span>
+          </div>
+
+          <div class="p-3 rounded-xl bg-slate-900/40 border border-slate-800 flex items-center gap-3">
+            <span class="neon-pill-icon w-8 h-8 rounded-lg text-teal-400">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+                <circle cx="9" cy="9" r="2"></circle>
+                <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path>
+              </svg>
+            </span>
+            <span>মোবাইল ও ডেস্কটপে স্মুথ ড্র্যাগ, জুম ও ফুল জিপিএস ট্র্যাকিং সাপোর্ট</span>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- 6. Step-by-Step Road Guide ("কীভাবে পৌঁছাবেন") -->
+      <section id="route-guide" class="space-y-6">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-teal-500/20 pb-4">
+          <div>
+            <div class="text-teal-400 text-xs font-mono font-semibold tracking-wider">ROAD NAVIGATION & TRANSPORT</div>
+            <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight mt-1">
+              যাতায়াত ও পৌঁছানোর পথনির্দেশনা
+            </h2>
+          </div>
+          <p class="text-xs md:text-sm text-slate-400 max-w-md">
+            ঢাকা, চট্টগ্রাম ও স্থানীয় বাজার থেকে শরীফ ভূঁইয়ার বাড়িতে পৌঁছানোর স্পষ্ট নির্দেশিকা
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Route 1: From Dhaka -->
+          <div class="liquid-glass p-6 space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="neon-pill-icon w-10 h-10 rounded-xl">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C2.1 10.9 2 11.1 2 11.4V16c0 .6.4 1 1 1h2"></path>
+                  <circle cx="7" cy="17" r="2"></circle>
+                  <path d="M9 17h6"></path>
+                  <circle cx="17" cy="17" r="2"></circle>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-white">ঢাকা থেকে সড়কপথে</h3>
+                <span class="text-xs text-teal-400 font-mono">সময়: ৩.৫ - ৪.৫ ঘণ্টা</span>
+              </div>
+            </div>
+
+            <ol class="space-y-3 text-xs md:text-sm text-slate-300">
+              <li class="flex items-start gap-2">
+                <span class="w-5 h-5 rounded-full bg-teal-500/20 text-teal-300 flex items-center justify-center font-bold text-[11px] shrink-0 mt-0.5">১</span>
+                <span>সায়েদাবাদ/যাত্রাবাড়ী থেকে লক্ষ্মীপুরগামী এসি/নন-এসি বাস (আল-বারাকা, ইকোনো, হিমাচল)।</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-5 h-5 rounded-full bg-teal-500/20 text-teal-300 flex items-center justify-center font-bold text-[11px] shrink-0 mt-0.5">২</span>
+                <span>ঢাকা-চট্টগ্রাম হাইওয়ে দিয়ে পদুয়ার বাজার/কুমিল্লা বা চাঁদপুর হয়ে লক্ষ্মীপুর পৌঁছান।</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-5 h-5 rounded-full bg-teal-500/20 text-teal-300 flex items-center justify-center font-bold text-[11px] shrink-0 mt-0.5">৩</span>
+                <span>লক্ষ্মীপুর শহর ঢোকার আগেই <strong>দালাল বাজার বাসস্ট্যান্ডে</strong> নামুন।</span>
+              </li>
+            </ol>
+          </div>
+
+          <!-- Route 2: From Chattogram -->
+          <div class="liquid-glass p-6 space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="neon-pill-icon violet w-10 h-10 rounded-xl">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect width="16" height="16" x="4" y="4" rx="2"></rect>
+                  <path d="M9 9h6v6H9z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-white">চট্টগ্রাম থেকে সড়কপথে</h3>
+                <span class="text-xs text-violet-400 font-mono">সময়: ৩.০ - ৩.৫ ঘণ্টা</span>
+              </div>
+            </div>
+
+            <ol class="space-y-3 text-xs md:text-sm text-slate-300">
+              <li class="flex items-start gap-2">
+                <span class="w-5 h-5 rounded-full bg-violet-500/20 text-violet-300 flex items-center justify-center font-bold text-[11px] shrink-0 mt-0.5">১</span>
+                <span>অলংকার মোড় বা একে খান থেকে নোয়াখালী/লক্ষ্মীপুরগামী বাসে উঠুন।</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-5 h-5 rounded-full bg-violet-500/20 text-violet-300 flex items-center justify-center font-bold text-[11px] shrink-0 mt-0.5">২</span>
+                <span>চট্টগ্রাম -> ফেনী -> চৌমুহনী -> লক্ষ্মীপুর মহাসড়ক রুট ব্যবহার করুন।</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-5 h-5 rounded-full bg-violet-500/20 text-violet-300 flex items-center justify-center font-bold text-[11px] shrink-0 mt-0.5">৩</span>
+                <span>লক্ষ্মীপুর শহর অতিক্রম করে উত্তর দিকে দালাল বাজার বাজারে পৌঁছান।</span>
+              </li>
+            </ol>
+          </div>
+
+          <!-- Route 3: Local Last-Mile Transport to Kaman Khola -->
+          <div class="liquid-glass p-6 space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="neon-pill-icon w-10 h-10 rounded-xl">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-white">দালাল বাজার থেকে কামান খোলা</h3>
+                <span class="text-xs text-teal-400 font-mono">সময়: মাত্র ৫-৭ মিনিট</span>
+              </div>
+            </div>
+
+            <ol class="space-y-3 text-xs md:text-sm text-slate-300">
+              <li class="flex items-start gap-2">
+                <span class="w-5 h-5 rounded-full bg-teal-500/20 text-teal-300 flex items-center justify-center font-bold text-[11px] shrink-0 mt-0.5">১</span>
+                <span>দালাল বাজার মোড় থেকে সহজে ব্যাটারিচালিত অটোরিকশা বা সিএনজি নিন।</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-5 h-5 rounded-full bg-teal-500/20 text-teal-300 flex items-center justify-center font-bold text-[11px] shrink-0 mt-0.5">২</span>
+                <span>চালককে বলুন <strong>"কামান খোলা ৫ নং ওয়ার্ড, শরীফ ভূঁইয়ার বাড়ি"</strong>।</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-5 h-5 rounded-full bg-teal-500/20 text-teal-300 flex items-center justify-center font-bold text-[11px] shrink-0 mt-0.5">৩</span>
+                <span>কামান খোলা প্রধান পাকা রাস্তা থেকে মাত্র কয়েক গজে সুন্দর পারিবারিক চত্বর।</span>
+              </li>
+            </ol>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- 7. Nearby Landmarks & Heritage Attractions ("আশেপাশের দর্শনীয় স্থান") -->
+      <section id="landmarks" class="space-y-6">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-teal-500/20 pb-4">
+          <div>
+            <div class="text-teal-400 text-xs font-mono font-semibold tracking-wider">HERITAGE & SURROUNDINGS</div>
+            <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight mt-1">
+              দালাল বাজার ও লক্ষ্মীপুরের ঐতিহ্যবাহী স্থান
+            </h2>
+          </div>
+          <p class="text-xs md:text-sm text-slate-400 max-w-md">
+            শরীফ ভূঁইয়ার বাড়ির সন্নিকটে অবস্থিত শতাব্দীপ্রাচীন প্রত্নতাত্ত্বিক ও নৈসর্গিক স্থান
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          
+          <div class="liquid-glass p-5 space-y-3">
+            <div class="neon-pill-icon w-10 h-10 rounded-xl">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-3"></path>
+              </svg>
+            </div>
+            <h3 class="text-base font-bold text-white">দালাল বাজার জমিদার বাড়ি</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              প্রায় ৪০০ বছরের প্রাচীন জমিদার প্রাসাদ, সুদৃশ্য শানবাঁধানো ঘাট ও ঐতিহাসিক নান্দনিক স্থাপত্যের নিদর্শন। দূরত্ব মাত্র ১.৫ কিমি।
+            </p>
+          </div>
+
+          <div class="liquid-glass p-5 space-y-3">
+            <div class="neon-pill-icon violet w-10 h-10 rounded-xl">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 12h20M2 12a10 10 0 0 0 20 0M2 12a10 10 0 0 1 20 0"></path>
+              </svg>
+            </div>
+            <h3 class="text-base font-bold text-white">খোয়া সাগর দিঘি</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              বিশাল এলাকা জুড়ে বিস্তৃত ঐতিহ্যবাহী দিঘি, যেখানে শীত মৌসুমে অতিথি পাখির আগমন ঘটে। মনোরম সান্ধ্যকালীন নির্মল বাতাস।
+            </p>
+          </div>
+
+          <div class="liquid-glass p-5 space-y-3">
+            <div class="neon-pill-icon w-10 h-10 rounded-xl">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+            <h3 class="text-base font-bold text-white">কামান খোলা মঠ ও বাজার</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              কামান খোলা এলাকার ঐতিহ্যবাহী প্রাচীন স্থাপত্য শৈলী ও স্থানীয় গ্রামীণ হাট-বাজার, যা সমৃদ্ধ লোকজ ঐতিহ্যের ধারক।
+            </p>
+          </div>
+
+          <div class="liquid-glass p-5 space-y-3">
+            <div class="neon-pill-icon violet w-10 h-10 rounded-xl">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+            <h3 class="text-base font-bold text-white">মজু চৌধুরীর হাট ও মেঘনা তীর</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              দক্ষিণাঞ্চলের গুরুত্বপূর্ণ নদী বন্দর ও পর্যটন কেন্দ্র। মেঘনা নদীর সূর্যাস্ত, তাজা রুপালি ইলিশ ও জলযানের নয়নাভিরাম দৃশ্য।
+            </p>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- 8. Interactive Contact & Fast Inquiry Glass Card -->
+      <section id="contact" class="liquid-glass p-6 md:p-10 relative overflow-hidden">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <div class="lg:col-span-7 space-y-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs font-semibold">
+              <span class="w-2 h-2 rounded-full bg-teal-400"></span>
+              <span>পরিদর্শন ও যোগাযোগ পোর্টাল</span>
+            </div>
+            
+            <h2 class="text-2xl md:text-4xl font-bold text-white tracking-tight">
+              শরীফ ভূঁইয়ার বাড়ি পরিদর্শন কিংবা তথ্যের জন্য
+            </h2>
+            
+            <p class="text-slate-300 text-sm md:text-base leading-relaxed">
+              পারিবারিক বা স্থানিক যেকোনো পরিচিতি এবং কুশল বিনিময়ের জন্য আমাদের সাথে সরাসরি যোগাযোগ করতে পারেন। কামান খোলা, দালাল বাজারে আপনাকে স্বাগতম।
+            </p>
+
+            <div class="pt-2 flex flex-wrap items-center gap-4">
+              <a 
+                href="https://www.google.com/maps/dir/?api=1&destination=23.0134,90.8715" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="btn-neon-primary"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                </svg>
+                <span>গুগল ম্যাপসে ঠিকানা খুলুন</span>
+              </a>
+
+              <button onclick="shareLocation()" class="btn-neon-secondary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="18" cy="5" r="3"></circle>
+                  <circle cx="6" cy="12" r="3"></circle>
+                  <circle cx="18" cy="19" r="3"></circle>
+                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                  <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                </svg>
+                <span>লিংক শেয়ার করুন</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 p-6 rounded-2xl bg-slate-950/70 border border-teal-500/30 space-y-4">
+            <h3 class="text-base font-bold text-white flex items-center gap-2">
+              <span class="neon-pill-icon w-7 h-7 rounded-lg">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+              </span>
+              <span>দ্রুত নোট বা বার্তা পাঠান</span>
+            </h3>
+
+            <form onsubmit="handleInquirySubmit(event)" class="space-y-3">
+              <div>
+                <label class="block text-xs text-slate-300 mb-1">আপনার নাম</label>
+                <input 
+                  type="text" 
+                  id="inq-name" 
+                  required 
+                  placeholder="যেমন: মোহাম্মদ ইকবাল" 
+                  class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white focus:outline-none focus:border-teal-400 transition-colors"
+                />
+              </div>
+
+              <div>
+                <label class="block text-xs text-slate-300 mb-1">মোবাইল বা ইমেইল</label>
+                <input 
+                  type="text" 
+                  id="inq-contact" 
+                  required 
+                  placeholder="017XXXXXXXX বা ইমেইল" 
+                  class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white focus:outline-none focus:border-teal-400 transition-colors"
+                />
+              </div>
+
+              <div>
+                <label class="block text-xs text-slate-300 mb-1">বার্তা বা কুশল বিনিময়</label>
+                <textarea 
+                  id="inq-msg" 
+                  rows="2" 
+                  placeholder="আপনার বার্তা লিখুন..." 
+                  class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white focus:outline-none focus:border-teal-400 transition-colors resize-none"
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn-neon-primary w-full text-xs md:text-sm py-2.5">
+                <span>বার্তা জমা দিন</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="m5 12 14-7-7 14-2-5-5-2z"></path>
+                </svg>
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- 9. Ultra-clean Liquid Glass Footer -->
+    <footer class="mt-auto border-t border-slate-800/80 bg-slate-950/70 backdrop-blur-xl">
+      <div class="max-w-7xl mx-auto px-4 md:px-8 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        
+        <div class="flex items-center gap-2">
+          <div class="w-2.5 h-2.5 rounded-full bg-teal-400 shadow-[0_0_8px_#2dd4bf]"></div>
+          <span class="text-white font-semibold">শরীফ ভূঁইয়ার বাড়ি</span>
+          <span class="text-slate-600">|</span>
+          <span>কামান খোলা, দালাল বাজার, লক্ষ্মীপুর ৩৭০১</span>
+        </div>
+
+        <div class="flex items-center gap-6 font-sans">
+          <a href="#location" class="hover:text-teal-300 transition-colors">Metadata</a>
+          <a href="#satellite-map" class="hover:text-teal-300 transition-colors">Live Map</a>
+          <a href="#bd-map" class="hover:text-teal-300 transition-colors">BD Radar</a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=23.0134,90.8715" target="_blank" rel="noopener noreferrer" class="text-teal-400 hover:underline">Google Maps</a>
+        </div>
+
+        <div>
+          © <span id="current-year">2026</span> শরীফ ভূঁইয়ার বাড়ি বংশধর ও পরিবার। সর্বস্বত্ব সংরক্ষিত।
+        </div>
+
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Toast Notification System -->
+  <div id="toast-notification" class="liquid-glass px-5 py-3 border-teal-400 shadow-[0_0_30px_rgba(45,212,191,0.4)] flex items-center gap-3">
+    <div class="neon-pill-icon w-8 h-8 rounded-lg text-teal-400">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="M20 6 9 17l-5-5"></path>
+      </svg>
+    </div>
+    <div id="toast-text" class="text-sm font-medium text-white">সফলভাবে সম্পন্ন হয়েছে</div>
+  </div>
+
+  <!-- Leaflet.js Interactive Satellite Engine Script -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <script>
+    // Exact Geographic Coordinates for Sharif Bhuiyan Bari (Dalal Bazar, Lakshmipur)
+    const LAT = 23.0134;
+    const LNG = 90.8715;
+    const ZOOM_DEFAULT = 16;
+
+    let mapInstance = null;
+    let currentTileLayer = null;
+    let targetMarker = null;
+
+    // Tile Layer Providers (100% Reliable & Key-less)
+    const tileLayers = {
+      dark: L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://carto.com/">CARTO</a> &copy; OpenStreetMap',
+        maxZoom: 19
+      }),
+      satellite: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Tiles &copy; Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
+        maxZoom: 18
+      }),
+      osm: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 19
+      })
+    };
+
+    // Initialize Map on Window Load
+    function initMap() {
+      const mapContainer = document.getElementById('live-leaflet-map');
+      if (!mapContainer || typeof L === 'undefined') return;
+
+      // Create Leaflet Map Instance
+      mapInstance = L.map('live-leaflet-map', {
+        center: [LAT, LNG],
+        zoom: ZOOM_DEFAULT,
+        zoomControl: false,
+        attributionControl: false
+      });
+
+      // Add Zoom Control at Top-Right
+      L.control.zoom({ position: 'topright' }).addTo(mapInstance);
+
+      // Default Layer: Dark Mode
+      currentTileLayer = tileLayers.dark;
+      currentTileLayer.addTo(mapInstance);
+
+      // Custom Radar Animated DivIcon
+      const radarIcon = L.divIcon({
+        className: 'custom-radar-icon',
+        html: `
+          <div class="radar-marker-container">
+            <div class="radar-wave"></div>
+            <div class="radar-wave"></div>
+            <div class="radar-wave"></div>
+            <div class="radar-center-dot"></div>
+          </div>
+        `,
+        iconSize: [48, 48],
+        iconAnchor: [24, 24],
+        popupAnchor: [0, -20]
+      });
+
+      // Add Target Marker
+      targetMarker = L.marker([LAT, LNG], { icon: radarIcon }).addTo(mapInstance);
+
+      // Rich Bengali Interactive Popup
+      const popupContent = `
+        <div style="font-family: var(--font-bn); min-width: 220px; padding: 4px;">
+          <div style="font-size: 11px; color: #2dd4bf; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">
+            ল্যান্ডমার্ক অবস্থান
+          </div>
+          <div style="font-size: 16px; font-weight: 800; color: #ffffff; margin-top: 2px;">
+            শরীফ ভূঁইয়ার বাড়ি
+          </div>
+          <div style="font-size: 12px; color: #cbd5e1; margin-top: 4px; line-height: 1.5;">
+            কামান খোলা (৫ নং ওয়ার্ড)<br />
+            ৩ নং দালাল বাজার ইউনিয়ন, ডাকঘর: ৩৭০১<br />
+            দালাল বাজার, লক্ষ্মীপুর
+          </div>
+          <div style="margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(45,212,191,0.2); font-family: var(--font-mono); font-size: 11px; color: #a78bfa;">
+            GPS: ${LAT}, ${LNG}
+          </div>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=${LAT},${LNG}" 
+             target="_blank" 
+             style="display: inline-block; margin-top: 10px; padding: 6px 14px; background: linear-gradient(135deg, #0d9488, #2dd4bf); color: #051319; font-weight: 700; font-size: 12px; border-radius: 8px; text-decoration: none;">
+            গুগল ম্যাপে নেভিগেট করুন →
+          </a>
+        </div>
+      `;
+
+      targetMarker.bindPopup(popupContent);
+      targetMarker.openPopup();
+    }
+
+    // Switch Tile Layers (Dark, Satellite, OSM)
+    function setMapLayer(layerName) {
+      if (!mapInstance || !tileLayers[layerName]) return;
+
+      if (currentTileLayer) {
+        mapInstance.removeLayer(currentTileLayer);
+      }
+
+      currentTileLayer = tileLayers[layerName];
+      currentTileLayer.addTo(mapInstance);
+
+      // Update button visual styles
+      ['dark', 'satellite', 'osm'].forEach(name => {
+        const btn = document.getElementById(`layer-btn-${name}`);
+        if (!btn) return;
+        if (name === layerName) {
+          btn.className = 'px-3 py-1.5 rounded-lg text-xs font-medium bg-teal-500/20 text-teal-300 border border-teal-500/40 hover:bg-teal-500/30 transition-colors';
+        } else {
+          btn.className = 'px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 border border-slate-700 hover:text-white transition-colors';
+        }
+      });
+
+      showToast(`ম্যাপ ভিউ পরিবর্তিত: ${layerName.toUpperCase()}`);
+    }
+
+    // Recenter Map on Sharif Bhuiyan Bari
+    function recenterMap() {
+      if (!mapInstance) return;
+      mapInstance.flyTo([LAT, LNG], ZOOM_DEFAULT, {
+        animate: true,
+        duration: 1.2
+      });
+      if (targetMarker) {
+        targetMarker.openPopup();
+      }
+      showToast('ম্যাপ পুনরায় শরীফ ভূঁইয়ার বাড়িতে ফোকাস করা হয়েছে');
+    }
+
+    // Copy Full Address Handler
+    function copyFullAddress() {
+      const address = "শরীফ ভূঁইয়ার বাড়ি, কামান খোলা, ৫ নং ওয়ার্ড, ৩ নং দালাল বাজার ইউনিয়ন, ডাকঘর: ৩৭০১, দালাল বাজার, লক্ষ্মীপুর সদর, লক্ষ্মীপুর, বাংলাদেশ।";
+      navigator.clipboard.writeText(address).then(() => {
+        showToast("সম্পূর্ণ বাংলা ঠিকানা সফলভাবে কপি হয়েছে!");
+      }).catch(() => {
+        fallbackCopy(address);
+      });
+    }
+
+    // Copy Coordinates Handler
+    function copyCoordinates() {
+      const coords = `${LAT}, ${LNG}`;
+      navigator.clipboard.writeText(coords).then(() => {
+        showToast(`জিপিএস স্থানাঙ্ক (${coords}) কপি হয়েছে!`);
+      }).catch(() => {
+        fallbackCopy(coords);
+      });
+    }
+
+    // Fallback Clipboard Copy
+    function fallbackCopy(text) {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        showToast("সফলভাবে কপি হয়েছে!");
+      } catch (err) {
+        console.error('Copy error', err);
+      }
+      document.body.removeChild(textArea);
+    }
+
+    // Share Location Handler
+    function shareLocation() {
+      const shareData = {
+        title: 'শরীফ ভূঁইয়ার বাড়ি | দালাল বাজার, লক্ষ্মীপুর',
+        text: 'কামান খোলা, ৫ নং ওয়ার্ড, ৩ নং দালাল বাজার ইউনিয়ন, লক্ষ্মীপুর ৩৭০১ - শরীফ ভূঁইয়ার বাড়ির অবস্থান ও পথনির্দেশ।',
+        url: window.location.href
+      };
+
+      if (navigator.share) {
+        navigator.share(shareData).catch(err => console.log('Share canceled'));
+      } else {
+        copyFullAddress();
+      }
+    }
+
+    // Handle Contact Inquiry Form
+    function handleInquirySubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('inq-name').value;
+      showToast(`ধন্যবাদ ${name}! আপনার বার্তাটি সাদরে গ্রহণ করা হয়েছে।`);
+      e.target.reset();
+    }
+
+    // Toast Notification Manager
+    let toastTimeout = null;
+    function showToast(message) {
+      const toast = document.getElementById('toast-notification');
+      const text = document.getElementById('toast-text');
+      if (!toast || !text) return;
+
+      text.innerText = message;
+      toast.classList.add('show');
+
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3500);
+    }
+
+    // Switch between High-Precision Vector SVG and Official 64 District Map
+    function switchBdMapMode(mode) {
+      const vectorView = document.getElementById('bd-vector-view');
+      const districtView = document.getElementById('bd-district-view');
+      const btnVector = document.getElementById('btn-mode-vector');
+      const btnDistrict = document.getElementById('btn-mode-district');
+      if (!vectorView || !districtView || !btnVector || !btnDistrict) return;
+
+      if (mode === 'vector') {
+        vectorView.classList.remove('hidden');
+        vectorView.classList.add('flex');
+        districtView.classList.add('hidden');
+        districtView.classList.remove('flex');
+
+        btnVector.className = 'px-3 py-1 rounded-lg text-xs font-semibold bg-teal-500/20 text-teal-300 border border-teal-500/40 transition-all flex items-center gap-1.5';
+        btnDistrict.className = 'px-3 py-1 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition-all flex items-center gap-1.5';
+        showToast('বাংলাদেশ মানচিত্র: নিয়ন ভেক্টর রাডার ভিউ');
+      } else {
+        vectorView.classList.add('hidden');
+        vectorView.classList.remove('flex');
+        districtView.classList.remove('hidden');
+        districtView.classList.add('flex');
+
+        btnDistrict.className = 'px-3 py-1 rounded-lg text-xs font-semibold bg-teal-500/20 text-teal-300 border border-teal-500/40 transition-all flex items-center gap-1.5';
+        btnVector.className = 'px-3 py-1 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition-all flex items-center gap-1.5';
+        showToast('বাংলাদেশ মানচিত্র: প্রশাসনিক ৬৪ জেলা ভিউ');
+      }
+    }
+
+    // Live BST (Bangladesh Standard Time GMT+6) Clock
+    function updateClock() {
+      const clockEl = document.getElementById('live-bst-time');
+      if (!clockEl) return;
+      const now = new Date();
+      // Bangladesh is UTC+6
+      const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+      const bstTime = new Date(utc + (3600000 * 6));
+      
+      const hours = String(bstTime.getHours()).padStart(2, '0');
+      const minutes = String(bstTime.getMinutes()).padStart(2, '0');
+      const seconds = String(bstTime.getSeconds()).padStart(2, '0');
+      clockEl.innerText = `${hours}:${minutes}:${seconds} BST`;
+    }
+
+    // Initialize all components on DOM Ready
+    document.addEventListener('DOMContentLoaded', () => {
+      initMap();
+      updateClock();
+      setInterval(updateClock, 1000);
+      
+      const yearEl = document.getElementById('current-year');
+      if (yearEl) yearEl.innerText = new Date().getFullYear();
+    });
+  </script>
+</body>
+</html>

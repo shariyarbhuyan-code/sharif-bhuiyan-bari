@@ -1,0 +1,6 @@
+{
+  "name": "শরীফ ভূঁইয়ার বাড়ি - Sharif Bhuiyan Bari",
+  "description": "কামান খোলা, দালাল বাজার, লক্ষ্মীপুর - শরীফ ভূঁইয়ার বাড়ির অফিসিয়াল ল্যান্ডমার্ক পোর্টাল ও লাইভ স্যাটেলাইট ম্যাপ।",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
