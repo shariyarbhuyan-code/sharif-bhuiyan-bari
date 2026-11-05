@@ -565,12 +565,147 @@
     .weather-storm-alert {
       animation: weather-storm-pulse 2s ease-in-out infinite;
     }
+
+    /* Prayer Waqt Animations & Jaynamaz Arch Theme */
+    @keyframes fajr-ray-rise {
+      0%, 100% { transform: translateY(0) scale(1); opacity: 0.85; }
+      50% { transform: translateY(-4px) scale(1.08); opacity: 1; filter: drop-shadow(0 0 12px rgba(251, 191, 36, 0.85)); }
+    }
+    @keyframes dhuhr-sun-radiance {
+      0%, 100% { transform: scale(1) rotate(0deg); filter: drop-shadow(0 0 15px rgba(250, 204, 21, 0.7)); }
+      50% { transform: scale(1.08) rotate(180deg); filter: drop-shadow(0 0 25px rgba(250, 204, 21, 1)); }
+    }
+    @keyframes asr-slant-shine {
+      0%, 100% { opacity: 0.75; transform: skewX(-4deg); }
+      50% { opacity: 1; transform: skewX(-8deg); filter: drop-shadow(0 0 14px rgba(249, 115, 22, 0.85)); }
+    }
+    @keyframes maghrib-dusk-dip {
+      0%, 100% { transform: translateY(0); filter: drop-shadow(0 0 12px rgba(244, 63, 94, 0.7)); }
+      50% { transform: translateY(3px); filter: drop-shadow(0 0 20px rgba(244, 63, 94, 0.95)); }
+    }
+    @keyframes isha-star-glow {
+      0%, 100% { opacity: 0.8; transform: scale(1); filter: drop-shadow(0 0 15px rgba(129, 140, 248, 0.7)); }
+      50% { opacity: 1; transform: scale(1.05); filter: drop-shadow(0 0 25px rgba(129, 140, 248, 1)); }
+    }
+    @keyframes active-waqt-pulse {
+      0%, 100% { box-shadow: 0 0 15px rgba(45, 212, 191, 0.3), inset 0 0 10px rgba(45, 212, 191, 0.1); }
+      50% { box-shadow: 0 0 35px rgba(45, 212, 191, 0.7), inset 0 0 20px rgba(45, 212, 191, 0.25); }
+    }
+
+    .fajr-anim { animation: fajr-ray-rise 4s ease-in-out infinite; }
+    .dhuhr-anim { animation: dhuhr-sun-radiance 6s linear infinite; }
+    .asr-anim { animation: asr-slant-shine 4s ease-in-out infinite; }
+    .maghrib-anim { animation: maghrib-dusk-dip 5s ease-in-out infinite; }
+    .isha-anim { animation: isha-star-glow 4s ease-in-out infinite; }
+    .active-waqt-card {
+      animation: active-waqt-pulse 2.5s ease-in-out infinite;
+      border-color: #2dd4bf !important;
+      background: rgba(45, 212, 191, 0.1) !important;
+    }
+
+    /* Islamic Arch / Prayer Mat (Jaynamaz) Motif Frame */
+    .prayer-mat-card {
+      position: relative;
+      background: radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.14) 0%, rgba(15, 23, 42, 0.8) 75%);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-radius: 2rem;
+    }
+    .prayer-mat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 140px;
+      height: 14px;
+      background: linear-gradient(90deg, transparent, rgba(45, 212, 191, 0.8), transparent);
+      border-radius: 9999px;
+      filter: blur(2px);
+    }
+
+    /* Mobile Responsiveness & Strict Image Sizing Requirements (@media (max-width: 768px)) */
+    @media (max-width: 768px) {
+      body, html {
+        overflow-x: hidden;
+        width: 100%;
+      }
+
+      /* Strict Heritage Location Card Images Aspect Ratio & Height */
+      #landmarks img {
+        width: 100% !important;
+        height: 220px !important;
+        object-fit: cover !important;
+        display: block !important;
+      }
+
+      /* Lakshmipur 3D Map Section auto-stack to 1 column */
+      #lakshmipur .grid {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+      }
+      #lakshmipur .map-3d-card,
+      #lakshmipur .lg\:col-span-7,
+      #lakshmipur .lg\:col-span-5 {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      /* Navigation Bar clean flex-wrap */
+      header nav,
+      header .nav-container {
+        flex-wrap: wrap !important;
+      }
+
+      /* Liquid glass padding adjust */
+      .liquid-glass {
+        padding: 1.1rem !important;
+      }
+
+      #floating-weather-badge {
+        bottom: 1rem !important;
+        right: 1rem !important;
+        padding: 0.45rem 0.85rem !important;
+        font-size: 0.75rem !important;
+      }
+      #floating-prayer-badge {
+        top: 5rem !important;
+        right: 0.75rem !important;
+        padding: 0.4rem 0.75rem !important;
+        font-size: 0.72rem !important;
+      }
+    }
   </style>
 </head>
 
 <body class="relative text-slate-100 selection:bg-teal-500/30 selection:text-teal-200">
   <div class="tech-grid-bg" aria-hidden="true"></div>
   <div class="lakshmipur-bg-texture" aria-hidden="true"></div>
+
+  <!-- Floating Trigger Badge: Baitul Noor Jame Masjid Prayer Schedule -->
+  <a 
+    id="floating-prayer-badge"
+    href="#prayer-times" 
+    class="fixed top-20 sm:top-24 right-3 sm:right-6 z-[950] liquid-glass py-2 px-3 sm:px-4 rounded-full border-emerald-400/60 shadow-[0_0_25px_rgba(16,185,129,0.4)] hover:border-emerald-300 text-xs sm:text-sm font-semibold text-emerald-300 flex items-center gap-2 transition-all hover:scale-105 active:scale-95 group backdrop-blur-xl"
+    title="বাইতুন নূর জামে মসজিদের সালাতের সময়সূচী দেখুন"
+  >
+    <span class="text-base sm:text-lg animate-bounce">🕌</span>
+    <span class="tracking-wide">বাইতুন নূর জামে মসজিদ | সালাতের সময়সূচী</span>
+  </a>
+
+  <!-- Floating Trigger Badge: Live Weather Popup Modal Trigger -->
+  <button 
+    type="button"
+    id="floating-weather-badge" 
+    onclick="openWeatherModal()" 
+    class="fixed bottom-6 right-3 sm:right-6 z-[980] liquid-glass py-2.5 px-3.5 sm:px-4 rounded-full border-amber-400/60 shadow-[0_0_25px_rgba(245,158,11,0.4)] hover:border-amber-300 cursor-pointer flex items-center gap-2 text-xs sm:text-sm font-semibold text-amber-300 transition-all hover:scale-105 active:scale-95 backdrop-blur-xl"
+    title="দালাল বাজারের লাইভ আবহাওয়া পপআপ খুলুন"
+  >
+    <span id="floating-weather-icon" class="text-base sm:text-lg">☀️</span>
+    <span id="floating-weather-temp" class="font-mono font-bold">২৮°C</span>
+    <span class="text-slate-200 font-medium hidden xs:inline">দালাল বাজার | লাইভ আবহাওয়া</span>
+    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse ml-0.5"></span>
+  </button>
 
   <!-- Main Container -->
   <div class="relative z-10 flex flex-col min-h-screen">
@@ -598,15 +733,19 @@
         </a>
 
         <!-- Desktop Navigation Links -->
-        <nav class="hidden xl:flex items-center gap-6 2xl:gap-8 text-sm font-medium">
-          <a href="#location" class="nav-link">ঠিকানা ও মেটাডাটা</a>
+        <nav class="hidden xl:flex items-center gap-5 2xl:gap-7 text-sm font-medium">
+          <a href="#location" class="nav-link">ঠিকানা</a>
+          <a href="#prayer-times" class="nav-link text-emerald-300 font-semibold flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>সালাতের সময়সূচী</span>
+          </a>
           <a href="#lakshmipur" class="nav-link text-teal-300 font-semibold flex items-center gap-1.5">
             <span class="w-1.5 h-1.5 rounded-full bg-teal-400 shadow-[0_0_6px_#2dd4bf]"></span>
             <span>লক্ষ্মীপুর জেলা ৩ডি</span>
           </a>
           <a href="#bd-map" class="nav-link">বাংলাদেশ জোন</a>
           <a href="#satellite-map" class="nav-link">লাইভ ম্যাপ</a>
-          <a href="#weather" class="nav-link text-amber-300 font-semibold flex items-center gap-1.5">
+          <a href="#weather" onclick="openWeatherModal(); return false;" class="nav-link text-amber-300 font-semibold flex items-center gap-1.5">
             <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
             <span>লাইভ আবহাওয়া</span>
           </a>
@@ -660,6 +799,10 @@
           <a href="#location" class="px-2.5 py-1 rounded-full bg-slate-900/80 border border-slate-700/80 text-slate-300 whitespace-nowrap active:scale-95 transition-transform flex items-center gap-1">
             <span>📍</span><span>ঠিকানা</span>
           </a>
+          <a href="#prayer-times" class="px-2.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/50 text-emerald-300 font-semibold whitespace-nowrap active:scale-95 transition-transform flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>সালাত</span>
+          </a>
           <a href="#lakshmipur" class="px-2.5 py-1 rounded-full bg-teal-500/20 border border-teal-400/50 text-teal-300 font-semibold whitespace-nowrap active:scale-95 transition-transform flex items-center gap-1">
             <span class="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse"></span>
             <span>লক্ষ্মীপুর ৩ডি</span>
@@ -670,10 +813,10 @@
           <a href="#satellite-map" class="px-2.5 py-1 rounded-full bg-slate-900/80 border border-slate-700/80 text-slate-300 whitespace-nowrap active:scale-95 transition-transform flex items-center gap-1">
             <span>🛰️</span><span>লাইভ ম্যাপ</span>
           </a>
-          <a href="#weather" class="px-2.5 py-1 rounded-full bg-amber-500/20 border border-amber-400/50 text-amber-300 font-semibold whitespace-nowrap active:scale-95 transition-transform flex items-center gap-1">
+          <button type="button" onclick="openWeatherModal()" class="px-2.5 py-1 rounded-full bg-amber-500/20 border border-amber-400/50 text-amber-300 font-semibold whitespace-nowrap active:scale-95 transition-transform flex items-center gap-1">
             <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
             <span>আবহাওয়া</span>
-          </a>
+          </button>
           <a href="#route-guide" class="px-2.5 py-1 rounded-full bg-slate-900/80 border border-slate-700/80 text-slate-300 whitespace-nowrap active:scale-95 transition-transform flex items-center gap-1">
             <span>🚗</span><span>যাতায়াত</span>
           </a>
@@ -695,6 +838,12 @@
           <a href="#location" onclick="closeMobileMenu()" class="p-2.5 rounded-xl bg-slate-900/70 border border-slate-800 text-slate-200 hover:text-teal-300 hover:border-teal-500/40 flex items-center gap-2">
             <span>📍</span><span>ঠিকানা ও মেটাডাটা</span>
           </a>
+          <a href="#prayer-times" onclick="closeMobileMenu()" class="col-span-2 p-2.5 rounded-xl bg-emerald-500/15 border border-emerald-500/50 text-emerald-300 font-semibold hover:border-emerald-400 flex items-center justify-between">
+            <span class="flex items-center gap-2">
+              <span>🕌</span><span>বাইতুন নূর জামে মসজিদ | সালাতের সময়সূচী</span>
+            </span>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-400/20 text-emerald-300 font-mono">PRAYER</span>
+          </a>
           <a href="#lakshmipur" onclick="closeMobileMenu()" class="col-span-2 p-2.5 rounded-xl bg-teal-500/15 border border-teal-500/50 text-teal-300 font-semibold hover:border-teal-400 flex items-center justify-between">
             <span class="flex items-center gap-2">
               <span>🗺️</span><span>লক্ষ্মীপুর জেলা ৩ডি ত্রিমাত্রিক মানচিত্র</span>
@@ -707,12 +856,12 @@
           <a href="#satellite-map" onclick="closeMobileMenu()" class="p-2.5 rounded-xl bg-slate-900/70 border border-slate-800 text-slate-200 hover:text-teal-300 hover:border-teal-500/40 flex items-center gap-2">
             <span>🛰️</span><span>লাইভ স্যাটেলাইট</span>
           </a>
-          <a href="#weather" onclick="closeMobileMenu()" class="col-span-2 p-2.5 rounded-xl bg-amber-500/15 border border-amber-500/50 text-amber-300 font-semibold hover:border-amber-400 flex items-center justify-between">
+          <button type="button" onclick="closeMobileMenu(); openWeatherModal();" class="col-span-2 p-2.5 rounded-xl bg-amber-500/15 border border-amber-500/50 text-amber-300 font-semibold hover:border-amber-400 flex items-center justify-between text-left">
             <span class="flex items-center gap-2">
-              <span>⛅</span><span>দালাল বাজার রিয়েল-টাইম আবহাওয়া ও পূর্বাভাস</span>
+              <span>⛅</span><span>দালাল বাজার লাইভ আবহাওয়া ও পূর্বাভাস (পপআপ)</span>
             </span>
-            <span class="text-[10px] px-2 py-0.5 rounded-full bg-amber-400/20 text-amber-300 font-mono">LIVE METEO</span>
-          </a>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-amber-400/20 text-amber-300 font-mono">OPEN POPUP</span>
+          </button>
           <a href="#route-guide" onclick="closeMobileMenu()" class="p-2.5 rounded-xl bg-slate-900/70 border border-slate-800 text-slate-200 hover:text-teal-300 hover:border-teal-500/40 flex items-center gap-2">
             <span>🚗</span><span>যাতায়াত পথ</span>
           </a>
@@ -921,10 +1070,10 @@
                   <path d="M78 85 C80 65 100 52 120 52" stroke="rgba(255, 255, 255, 0.45)" stroke-width="1.5" stroke-linecap="round" />
                 </svg>
 
-                <!-- Floating Bottom Badge on Orb (Sharif Bhuiyan Bari Greeting) -->
+                <!-- Floating Bottom Badge on Orb (Avatar Character Badge) -->
                 <div class="absolute bottom-3 inset-x-3 py-1.5 px-2.5 rounded-full bg-slate-950/90 border border-teal-400/50 text-center backdrop-blur-md z-20 shadow-[0_0_15px_rgba(45,212,191,0.3)]">
                   <span class="text-xs font-bold text-teal-300 tracking-wider">
-                    শরীফ ভূঁইয়ার বাড়ির পক্ষ থেকে আন্তরিক শুভেচ্ছা
+                    শাহনেওয়াজ & মুনতাহা
                   </span>
                 </div>
 
@@ -940,7 +1089,7 @@
                 <span>স্বাগতম ও আন্তরিক শুভেচ্ছা</span>
               </div>
               <p class="text-xs text-slate-300 mt-1 leading-relaxed">
-                "শরীফ ভূঁইয়ার বাড়ির পক্ষ থেকে আন্তরিক শুভেচ্ছা। কামান খোলার সবুজ প্রকৃতির মাঝে এক চিরচেনা আপন আলয়।"
+                "শরীফ ভূঁইয়ার বাড়ির পক্ষ থেকে শাহনেওয়াজ & মুনতাহার আন্তরিক শুভেচ্ছা ও সাদর আমন্ত্রণ। কামান খোলার সবুজ প্রকৃতির মাঝে এক চিরচেনা আপন আলয়।"
               </p>
             </div>
 
@@ -1111,6 +1260,280 @@
               <div class="text-xs text-teal-400 font-medium">বিভাগ ও দেশ</div>
               <div class="text-xl font-bold text-white mt-1">চট্টগ্রাম, বাংলাদেশ</div>
               <div class="text-xs text-slate-400 font-sans mt-0.5">Chattogram, Bangladesh</div>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- 3.5. Baitul Noor Jame Masjid Dynamic Prayer Schedule (জায়নামাজ থিমের সালাতের সময়সূচী) -->
+      <section id="prayer-times" class="space-y-6">
+        
+        <!-- Section Header with Islamic Geo-Context -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-emerald-500/25 pb-4">
+          <div>
+            <div class="inline-flex items-center gap-2 text-emerald-400 text-xs font-mono font-semibold tracking-wider">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#10b981]"></span>
+              <span>BAITUL NOOR JAME MASJID · KAMAN KHOLA, DALAL BAZAR</span>
+            </div>
+            <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight mt-1 flex flex-wrap items-center gap-3">
+              <span>বাইতুন নূর জামে মসজিদ — দৈনন্দিন সালাতের সময়সূচী (কামান খোলা, দালাল বাজার)</span>
+            </h2>
+            <p class="text-xs md:text-sm text-slate-300 mt-1">
+              শরীফ ভূঁইয়ার বাড়ির সন্নিকটে অবস্থিত স্থানীয় ঐতিহ্যবাহী বাইতুন নূর জামে মসজিদের ৫ ওয়াক্ত সালাত ও জুমু'আর সঠিক সময়সূচী
+            </p>
+          </div>
+
+          <!-- Real-Time BST Time Badge & Active Waqt Live Indicator -->
+          <div class="flex flex-wrap items-center gap-2.5">
+            <div class="px-3.5 py-1.5 rounded-xl bg-slate-900/80 border border-emerald-500/40 text-emerald-300 text-xs font-mono flex items-center gap-2 shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+              <span>স্থানীয় বিএসটি ঘড়ি: <strong id="prayer-clock-time" class="text-white">--:--:--</strong></span>
+            </div>
+            <div id="prayer-active-pill" class="px-3 py-1.5 rounded-xl bg-teal-500/15 border border-teal-400/50 text-teal-300 text-xs font-semibold flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
+              <span id="prayer-active-name">ওয়াক্ত হিসাব হচ্ছে...</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Prayer Mat (জায়নামাজ) Liquid-Glass Styled Container -->
+        <div class="prayer-mat-card p-5 sm:p-7 md:p-9 relative overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.8)]">
+          
+          <!-- Islamic Arch (Mihrab) Top Ornamental Silhouette -->
+          <div class="flex justify-center mb-6">
+            <div class="relative px-6 py-2 rounded-2xl bg-emerald-950/70 border border-emerald-500/30 text-emerald-300 text-xs font-semibold flex items-center gap-2.5 backdrop-blur-md shadow-[0_0_20px_rgba(16,185,129,0.3)] text-center">
+              <span class="text-emerald-400 font-bold">﷽</span>
+              <span>"নিশ্চয়ই নির্দিষ্ট সময়ে সালাত আদায় করা মুমিনদের ওপর ফরজ" (সূরা আন-নিসা: ১০৩)</span>
+            </div>
+          </div>
+
+          <!-- 5 Waqt Grid Cards with Stylized Dynamic Animations -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            
+            <!-- 1. Fajr (ফজর) -->
+            <div id="waqt-fajr" class="waqt-card liquid-glass p-4 rounded-2xl border-slate-700/70 hover:border-amber-400/60 transition-all duration-300 flex flex-col justify-between relative group">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-mono font-bold text-amber-400 uppercase tracking-wider">FAJR</span>
+                  <span id="badge-fajr" class="hidden text-[10px] px-2 py-0.5 rounded-full bg-teal-400 text-slate-950 font-bold animate-pulse">চলমান সালাত</span>
+                </div>
+                <h3 class="text-xl font-bold text-white mt-1">ফজর</h3>
+                
+                <!-- Dynamic Waqt Visual: Golden morning rays breaking above the horizon -->
+                <div class="my-4 h-24 rounded-xl bg-slate-950/60 border border-amber-500/20 flex items-center justify-center relative overflow-hidden">
+                  <div class="absolute inset-0 bg-gradient-to-t from-amber-500/10 via-transparent to-transparent"></div>
+                  <div class="fajr-anim relative flex flex-col items-center justify-center">
+                    <!-- Sunrise over horizon SVG -->
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-amber-400">
+                      <path d="M12 2v4M4.93 4.93l2.83 2.83M19.07 4.93l-2.83 2.83M2 18h20M7 18a5 5 0 0 1 10 0" stroke-linecap="round"/>
+                    </svg>
+                    <!-- Golden rays -->
+                    <div class="w-16 h-1 bg-amber-400/80 rounded-full blur-[1px] mt-1 shadow-[0_0_12px_#fbbf24]"></div>
+                  </div>
+                </div>
+
+                <div class="space-y-1.5 text-xs">
+                  <div class="flex items-center justify-between text-slate-300">
+                    <span class="text-slate-400">আজান:</span>
+                    <span class="font-mono font-bold text-amber-300">ভোর ৫:০০</span>
+                  </div>
+                  <div class="flex items-center justify-between text-slate-300">
+                    <span class="text-slate-400">ইকামত / জামাত:</span>
+                    <span class="font-mono font-bold text-white">ভোর ৫:২৫</span>
+                  </div>
+                  <div class="flex items-center justify-between text-slate-300 pt-1 border-t border-slate-800">
+                    <span class="text-slate-400">ওয়াক্ত শেষ:</span>
+                    <span class="font-mono text-slate-300">সকাল ৬:১৫</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-3 text-[11px] text-amber-300/80 italic font-sans text-center">
+                ভোরের প্রথম আলোয় রবের সান্নিধ্য
+              </div>
+            </div>
+
+            <!-- 2. Dhuhr (যোহর) -->
+            <div id="waqt-dhuhr" class="waqt-card liquid-glass p-4 rounded-2xl border-slate-700/70 hover:border-yellow-400/60 transition-all duration-300 flex flex-col justify-between relative group">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-mono font-bold text-yellow-400 uppercase tracking-wider">DHUHR</span>
+                  <span id="badge-dhuhr" class="hidden text-[10px] px-2 py-0.5 rounded-full bg-teal-400 text-slate-950 font-bold animate-pulse">চলমান সালাত</span>
+                </div>
+                <h3 class="text-xl font-bold text-white mt-1">যোহর</h3>
+                
+                <!-- Dynamic Waqt Visual: High overhead bright noon sun animation -->
+                <div class="my-4 h-24 rounded-xl bg-slate-950/60 border border-yellow-500/20 flex items-center justify-center relative overflow-hidden">
+                  <div class="absolute inset-0 bg-gradient-to-t from-yellow-500/10 via-transparent to-transparent"></div>
+                  <div class="dhuhr-anim relative flex items-center justify-center">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" class="text-yellow-400 drop-shadow-[0_0_15px_rgba(250,204,21,0.9)]">
+                      <circle cx="12" cy="12" r="5"/>
+                      <path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="space-y-1.5 text-xs">
+                  <div class="flex items-center justify-between text-slate-300">
+                    <span class="text-slate-400">আজান:</span>
+                    <span class="font-mono font-bold text-yellow-300">দুপুর ১২:১৫</span>
+                  </div>
+                  <div class="flex items-center justify-between text-slate-300">
+                    <span class="text-slate-400">ইকামত / জামাত:</span>
+                    <span class="font-mono font-bold text-white">দুপুর ১:৩০</span>
+                  </div>
+                  <div class="flex items-center justify-between text-slate-300 pt-1 border-t border-slate-800">
+                    <span class="text-slate-400">ওয়াক্ত শেষ:</span>
+                    <span class="font-mono text-slate-300">বিকাল ৪:০৫</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-3 text-[11px] text-yellow-300/80 italic font-sans text-center">
+                মধ্যাহ্নের ব্যস্ততা মাঝে আত্মিক প্রশান্তি
+              </div>
+            </div>
+
+            <!-- 3. Asr (আসর) -->
+            <div id="waqt-asr" class="waqt-card liquid-glass p-4 rounded-2xl border-slate-700/70 hover:border-orange-400/60 transition-all duration-300 flex flex-col justify-between relative group">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-mono font-bold text-orange-400 uppercase tracking-wider">ASR</span>
+                  <span id="badge-asr" class="hidden text-[10px] px-2 py-0.5 rounded-full bg-teal-400 text-slate-950 font-bold animate-pulse">চলমান সালাত</span>
+                </div>
+                <h3 class="text-xl font-bold text-white mt-1">আসর</h3>
+                
+                <!-- Dynamic Waqt Visual: Late afternoon slanting sun rays visual -->
+                <div class="my-4 h-24 rounded-xl bg-slate-950/60 border border-orange-500/20 flex items-center justify-center relative overflow-hidden">
+                  <div class="absolute inset-0 bg-gradient-to-t from-orange-500/10 via-transparent to-transparent"></div>
+                  <div class="asr-anim relative flex items-center justify-center">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-orange-400">
+                      <circle cx="8" cy="8" r="4" fill="currentColor"/>
+                      <line x1="8" y1="16" x2="18" y2="6" stroke-linecap="round" stroke-width="2.5" class="text-amber-300"/>
+                      <line x1="12" y1="18" x2="21" y2="9" stroke-linecap="round" stroke-width="2" class="text-orange-300 opacity-75"/>
+                      <line x1="5" y1="16" x2="13" y2="8" stroke-linecap="round" stroke-width="1.8" class="text-orange-300 opacity-60"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="space-y-1.5 text-xs">
+                  <div class="flex items-center justify-between text-slate-300">
+                    <span class="text-slate-400">আজান:</span>
+                    <span class="font-mono font-bold text-orange-300">বিকাল ৪:১৫</span>
+                  </div>
+                  <div class="flex items-center justify-between text-slate-300">
+                    <span class="text-slate-400">ইকামত / জামাত:</span>
+                    <span class="font-mono font-bold text-white">বিকাল ৪:৩০</span>
+                  </div>
+                  <div class="flex items-center justify-between text-slate-300 pt-1 border-t border-slate-800">
+                    <span class="text-slate-400">ওয়াক্ত শেষ:</span>
+                    <span class="font-mono text-slate-300">সূর্যাস্ত (৫:১৮)</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-3 text-[11px] text-orange-300/80 italic font-sans text-center">
+                পড়ন্ত বিকেলে সোনালী আলোয় সালাত
+              </div>
+            </div>
+
+            <!-- 4. Maghrib (মাগরিব) -->
+            <div id="waqt-maghrib" class="waqt-card liquid-glass p-4 rounded-2xl border-slate-700/70 hover:border-rose-400/60 transition-all duration-300 flex flex-col justify-between relative group">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-mono font-bold text-rose-400 uppercase tracking-wider">MAGHRIB</span>
+                  <span id="badge-maghrib" class="hidden text-[10px] px-2 py-0.5 rounded-full bg-teal-400 text-slate-950 font-bold animate-pulse">চলমান সালাত</span>
+                </div>
+                <h3 class="text-xl font-bold text-white mt-1">মাগরিব</h3>
+                
+                <!-- Dynamic Waqt Visual: Animated sunset visual with dusk gradient hues -->
+                <div class="my-4 h-24 rounded-xl bg-slate-950/60 border border-rose-500/20 flex items-center justify-center relative overflow-hidden">
+                  <div class="absolute inset-0 bg-gradient-to-t from-rose-500/20 via-purple-500/10 to-transparent"></div>
+                  <div class="maghrib-anim relative flex flex-col items-center justify-center">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-rose-400">
+                      <path d="M12 9v4M4.93 11.07l2.83-2.83M19.07 11.07l-2.83-2.83M2 18h20M17 18a5 5 0 0 0-10 0" stroke-linecap="round"/>
+                    </svg>
+                    <div class="w-20 h-1 bg-gradient-to-r from-transparent via-rose-500 to-transparent rounded-full mt-0.5"></div>
+                  </div>
+                </div>
+
+                <div class="space-y-1.5 text-xs">
+                  <div class="flex items-center justify-between text-slate-300">
+                    <span class="text-slate-400">আজান:</span>
+                    <span class="font-mono font-bold text-rose-300">সন্ধ্যা ৫:২০</span>
+                  </div>
+                  <div class="flex items-center justify-between text-slate-300">
+                    <span class="text-slate-400">ইকামত / জামাত:</span>
+                    <span class="font-mono font-bold text-white">সন্ধ্যা ৫:২৫</span>
+                  </div>
+                  <div class="flex items-center justify-between text-slate-300 pt-1 border-t border-slate-800">
+                    <span class="text-slate-400">ওয়াক্ত শেষ:</span>
+                    <span class="font-mono text-slate-300">সন্ধ্যা ৬:৩৫</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-3 text-[11px] text-rose-300/80 italic font-sans text-center">
+                গোধূলিলগ্নে রবের সমীপে সেজদা
+              </div>
+            </div>
+
+            <!-- 5. Isha (এশা) -->
+            <div id="waqt-isha" class="waqt-card liquid-glass p-4 rounded-2xl border-slate-700/70 hover:border-indigo-400/60 transition-all duration-300 flex flex-col justify-between relative group">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-mono font-bold text-indigo-400 uppercase tracking-wider">ISHA</span>
+                  <span id="badge-isha" class="hidden text-[10px] px-2 py-0.5 rounded-full bg-teal-400 text-slate-950 font-bold animate-pulse">চলমান সালাত</span>
+                </div>
+                <h3 class="text-xl font-bold text-white mt-1">এশা</h3>
+                
+                <!-- Dynamic Waqt Visual: Dark night sky with glowing neon crescent moon and floating stars -->
+                <div class="my-4 h-24 rounded-xl bg-slate-950/60 border border-indigo-500/20 flex items-center justify-center relative overflow-hidden">
+                  <div class="absolute inset-0 bg-gradient-to-t from-indigo-500/20 via-slate-950/40 to-transparent"></div>
+                  <div class="isha-anim relative flex items-center justify-center">
+                    <svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor" class="text-indigo-200 drop-shadow-[0_0_15px_rgba(165,180,252,0.85)] z-10">
+                      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+                    </svg>
+                    <!-- Twinkling Star dots -->
+                    <span class="w-1.5 h-1.5 rounded-full bg-teal-300 shadow-[0_0_6px_#2dd4bf] absolute -top-1 right-2 animate-ping"></span>
+                    <span class="w-1 h-1 rounded-full bg-indigo-300 shadow-[0_0_4px_#a5b4fc] absolute bottom-2 left-2 animate-pulse"></span>
+                    <span class="w-1 h-1 rounded-full bg-amber-200 shadow-[0_0_4px_#fde68a] absolute top-3 left-3 animate-ping"></span>
+                  </div>
+                </div>
+
+                <div class="space-y-1.5 text-xs">
+                  <div class="flex items-center justify-between text-slate-300">
+                    <span class="text-slate-400">আজান:</span>
+                    <span class="font-mono font-bold text-indigo-300">রাত ৭:০০</span>
+                  </div>
+                  <div class="flex items-center justify-between text-slate-300">
+                    <span class="text-slate-400">ইকামত / জামাত:</span>
+                    <span class="font-mono font-bold text-white">রাত ৭:৪৫</span>
+                  </div>
+                  <div class="flex items-center justify-between text-slate-300 pt-1 border-t border-slate-800">
+                    <span class="text-slate-400">ওয়াক্ত শেষ:</span>
+                    <span class="font-mono text-slate-300">ফজরের পূর্ব পর্যন্ত</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-3 text-[11px] text-indigo-300/80 italic font-sans text-center">
+                শান্তিময় রজনীতে দিবসের সমাপ্তি
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Bottom Footer Bar: Friday Jummah Details & Masjid Location Info -->
+          <div class="mt-6 pt-5 border-t border-emerald-500/20 flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs text-slate-300">
+            <div class="flex flex-wrap items-center gap-3">
+              <span class="px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 font-bold flex items-center gap-1.5">
+                <span>🕌</span>
+                <span>পবিত্র জুমু'আ: দুপুর ১:১৫ (বয়ান ও আজান: দুপুর ১২:১৫)</span>
+              </span>
+              <span class="text-slate-400">
+                মুয়াজ্জিন ও ইমাম সাহেব কর্তৃক পরিচালিত স্থানীয় জামাত
+              </span>
+            </div>
+            <div class="text-[11px] text-emerald-400/80 font-mono">
+              বাইতুন নূর জামে মসজিদ · কামান খোলা (৫ নং ওয়ার্ড), দালাল বাজার
             </div>
           </div>
 
@@ -2727,33 +3150,175 @@
 
     </main>
 
-    <!-- 10. Ultra-clean Liquid Glass Footer -->
-    <footer class="mt-auto border-t border-slate-800/80 bg-slate-950/70 backdrop-blur-xl">
-      <div class="max-w-7xl mx-auto px-4 md:px-8 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+    <!-- 10. Prominent Neon Glassmorphic Developer Footer -->
+    <footer class="mt-auto border-t border-teal-500/30 bg-slate-950/85 backdrop-blur-2xl relative overflow-hidden py-12 px-4 md:px-8">
+      <!-- Ambient background neon glow aura -->
+      <div class="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-teal-500/10 via-cyan-500/5 to-transparent pointer-events-none"></div>
+      
+      <div class="max-w-7xl mx-auto flex flex-col items-center justify-center text-center space-y-6 relative z-10">
         
-        <div class="flex flex-wrap items-center gap-2">
-          <div class="w-2.5 h-2.5 rounded-full bg-teal-400 shadow-[0_0_8px_#2dd4bf]"></div>
-          <span class="text-white font-semibold">শরীফ ভূঁইয়ার বাড়ি</span>
-          <span class="text-slate-600">|</span>
-          <span>কামান খোলা, দালাল বাজার, লক্ষ্মীপুর ৩৭০১</span>
+        <!-- Large High-Intensity Neon Glowing Headline -->
+        <div class="liquid-glass px-6 sm:px-10 py-7 rounded-3xl border-teal-400/40 shadow-[0_0_50px_rgba(45,212,191,0.25)] w-full max-w-4xl mx-auto backdrop-blur-xl">
+          <div class="flex items-center justify-center gap-2 mb-2 text-teal-400 text-xs font-mono font-bold tracking-widest uppercase">
+            <span class="w-2 h-2 rounded-full bg-teal-400 animate-ping"></span>
+            <span>CREATIVE ENGINEERING & DIGITAL LANDMARK ARCHITECTURE</span>
+            <span class="w-2 h-2 rounded-full bg-teal-400 animate-ping"></span>
+          </div>
+          
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight" style="text-shadow: 0 0 20px rgba(45, 212, 191, 0.9), 0 0 40px rgba(45, 212, 191, 0.4);">
+            Developed by Shariyar | All Rights Reserved
+          </h2>
+
+          <p class="text-xs sm:text-sm text-slate-300 max-w-2xl mx-auto mt-3 leading-relaxed font-sans">
+            Crafted with high-precision GIS mapping, Islamic prayer telemetry, real-time meteorological sensor feeds, and Apple-grade liquid glassmorphism for <span class="text-teal-300 font-semibold">শরীফ ভূঁইয়ার বাড়ি</span> (কামান খোলা, দালাল বাজার, লক্ষ্মীপুর ৩৭০১)।
+          </p>
         </div>
 
-        <div class="flex flex-wrap items-center gap-4 sm:gap-6 font-sans">
-          <a href="#location" class="hover:text-teal-300 transition-colors">Metadata</a>
-          <a href="#lakshmipur" class="hover:text-teal-300 transition-colors">Lakshmipur 3D</a>
-          <a href="#bd-map" class="hover:text-teal-300 transition-colors">BD Radar</a>
-          <a href="#satellite-map" class="hover:text-teal-300 transition-colors">Live Map</a>
-          <a href="#landmarks" class="hover:text-teal-300 transition-colors">Heritage Spots</a>
-          <a href="https://www.google.com/maps/dir/?api=1&destination=23.0134,90.8715" target="_blank" rel="noopener noreferrer" class="text-teal-400 hover:underline">Google Maps</a>
+        <!-- Quick Links & Brand Attribution -->
+        <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs font-medium text-slate-400">
+          <a href="#hero" class="hover:text-teal-300 transition-colors flex items-center gap-1.5">
+            <span>🏠</span><span>প্রচ্ছদ</span>
+          </a>
+          <a href="#location" class="hover:text-teal-300 transition-colors flex items-center gap-1.5">
+            <span>📍</span><span>ঠিকানা</span>
+          </a>
+          <a href="#prayer-times" class="hover:text-emerald-300 transition-colors flex items-center gap-1.5">
+            <span>🕌</span><span>সালাতের সময়সূচী</span>
+          </a>
+          <button type="button" onclick="openWeatherModal()" class="hover:text-amber-300 transition-colors flex items-center gap-1.5">
+            <span>⛅</span><span>লাইভ আবহাওয়া</span>
+          </button>
+          <a href="#lakshmipur" class="hover:text-teal-300 transition-colors flex items-center gap-1.5">
+            <span>🗺️</span><span>লক্ষ্মীপুর জেলা ৩ডি</span>
+          </a>
+          <a href="#bd-map" class="hover:text-teal-300 transition-colors flex items-center gap-1.5">
+            <span>🇧🇩</span><span>বাংলাদেশ রাডার</span>
+          </a>
+          <a href="#satellite-map" class="hover:text-teal-300 transition-colors flex items-center gap-1.5">
+            <span>🛰️</span><span>স্যাটেলাইট ম্যাপ</span>
+          </a>
+          <a href="#landmarks" class="hover:text-teal-300 transition-colors flex items-center gap-1.5">
+            <span>🏛️</span><span>ঐতিহাসিক স্থান</span>
+          </a>
+          <a href="#contact" class="hover:text-teal-300 transition-colors flex items-center gap-1.5">
+            <span>✉️</span><span>বার্তা পাঠান</span>
+          </a>
         </div>
 
-        <div>
-          © <span id="current-year">2026</span> শরীফ ভূঁইয়ার বাড়ি পরিবার ও বংশধর। সর্বস্বত্ব সংরক্ষিত।
+        <div class="text-[11px] text-slate-500 font-mono">
+          © <span id="current-year">2026</span> শরীফ ভূঁইয়ার বাড়ি | দালাল বাজার, লক্ষ্মীপুর · All Rights Reserved
         </div>
 
       </div>
     </footer>
 
+  </div>
+
+  <!-- Interactive Weather Popup Modal (Full-Screen Liquid Glass) -->
+  <div id="modal-weather" class="fixed inset-0 z-[10002] hidden items-center justify-center p-3 sm:p-5 bg-slate-950/90 backdrop-blur-2xl">
+    <div class="relative w-full max-w-4xl max-h-[92vh] liquid-glass p-5 sm:p-8 border-amber-500/40 flex flex-col shadow-[0_25px_60px_rgba(0,0,0,0.9)] overflow-y-auto">
+      
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between pb-4 border-b border-amber-500/20 shrink-0">
+        <div class="flex items-center gap-2.5">
+          <div class="w-3 h-3 rounded-full bg-amber-400 shadow-[0_0_8px_#f59e0b] animate-ping"></div>
+          <div>
+            <h3 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+              <span>দালাল বাজার লাইভ আবহাওয়া ও পূর্বাভাস</span>
+              <span class="text-[10px] px-2 py-0.5 rounded-full bg-amber-400/20 text-amber-300 font-mono">LIVE RADAR</span>
+            </h3>
+            <p class="text-[11px] text-amber-300/80">কামান খোলা, দালাল বাজার, লক্ষ্মীপুর (২৩.০১৩৪° N, ৯০.৮৭১৫° E)</p>
+          </div>
+        </div>
+        
+        <div class="flex items-center gap-2">
+          <button 
+            type="button" 
+            onclick="fetchDalalBazarWeather()" 
+            class="px-2.5 py-1.5 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-300 hover:text-white hover:border-amber-400 transition-colors flex items-center gap-1.5 text-xs font-semibold"
+            title="আবহাওয়া রিফ্রেশ করুন"
+          >
+            <svg id="modal-weather-refresh-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+            </svg>
+            <span>রিফ্রেশ</span>
+          </button>
+          
+          <button 
+            type="button" 
+            onclick="closeWeatherModal()" 
+            class="p-2 rounded-xl bg-slate-900 border border-slate-700 text-slate-300 hover:text-white hover:border-amber-400 transition-colors"
+            aria-label="পপআপ বন্ধ করুন"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Modal Weather Content -->
+      <div class="py-4 space-y-6">
+        
+        <!-- Live Card -->
+        <div class="p-6 rounded-2xl bg-slate-900/60 border border-amber-500/25 flex flex-col md:flex-row items-center md:items-start justify-between gap-6">
+          <div class="flex items-center gap-5">
+            <div id="modal-weather-visual" class="w-24 h-24 rounded-2xl bg-slate-950/80 border border-slate-700 flex items-center justify-center shrink-0">
+              <!-- Animated SVG inserted by JS -->
+            </div>
+            <div>
+              <div class="flex items-baseline gap-2">
+                <span id="modal-weather-temp" class="text-4xl sm:text-5xl font-extrabold text-white font-mono">--°</span>
+                <span class="text-xl font-bold text-amber-400">C</span>
+              </div>
+              <div id="modal-weather-desc" class="text-base font-bold text-slate-200 mt-1">লোড হচ্ছে...</div>
+              <div id="modal-weather-feels" class="text-xs text-slate-400 mt-0.5">অনুভূত: --°C</div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 w-full md:w-auto">
+            <div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800 text-center">
+              <div class="text-[10px] text-teal-300">আর্দ্রতা</div>
+              <div id="modal-weather-humidity" class="text-base font-bold text-white font-mono mt-0.5">--%</div>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800 text-center">
+              <div class="text-[10px] text-teal-300">বাতাস</div>
+              <div id="modal-weather-wind" class="text-base font-bold text-white font-mono mt-0.5">-- কিমি/ঘ</div>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800 text-center">
+              <div class="text-[10px] text-teal-300">বৃষ্টির সম্ভাবনা</div>
+              <div id="modal-weather-rain" class="text-base font-bold text-white font-mono mt-0.5">--%</div>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800 text-center">
+              <div class="text-[10px] text-amber-300">সূর্যোদয়/অস্ত</div>
+              <div id="modal-weather-sun" class="text-[11px] font-bold text-white font-mono mt-0.5">--:--</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2-Day Forecast Inside Modal -->
+        <div>
+          <h4 class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-3 flex items-center gap-2">
+            <span>📅</span>
+            <span>পরবর্তী ২ দিনের পূর্বাভাস (Next 2-Day Forecast)</span>
+          </h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="modal-forecast-cards">
+            <!-- Injected by JS -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400 shrink-0">
+        <span class="text-amber-300/80 font-mono text-[11px]">Open-Meteo High-Precision Weather API</span>
+        <button type="button" onclick="closeWeatherModal()" class="btn-neon-primary py-1 px-4 text-xs">
+          ঠিক আছে (Close)
+        </button>
+      </div>
+
+    </div>
   </div>
 
   <!-- High-Res 3D Lakshmipur Map Modal Lightbox -->
@@ -3278,10 +3843,31 @@
       }
     }
 
+    // Weather Modal Handlers
+    function openWeatherModal() {
+      const modal = document.getElementById('modal-weather');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeWeatherModal() {
+      const modal = document.getElementById('modal-weather');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+    }
+
     async function fetchDalalBazarWeather() {
       const refreshBtn = document.getElementById('weather-refresh-btn');
       const refreshIcon = document.getElementById('weather-refresh-icon');
+      const modalRefreshIcon = document.getElementById('modal-weather-refresh-icon');
       if (refreshIcon) refreshIcon.classList.add('animate-spin');
+      if (modalRefreshIcon) modalRefreshIcon.classList.add('animate-spin');
 
       const url = 'https://api.open-meteo.com/v1/forecast?latitude=23.0134&longitude=90.8715&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_probability_max&timezone=auto';
 
@@ -3310,7 +3896,18 @@
         const now = new Date();
         const localHour = (now.getUTCHours() + 6) % 24;
 
-        // Update Text & Metric Elements
+        // Update Floating Bottom Corner Badge
+        const floatTemp = document.getElementById('floating-weather-temp');
+        if (floatTemp) floatTemp.innerText = `${toBengaliDigits(temp)}°C`;
+        const floatIcon = document.getElementById('floating-weather-icon');
+        if (floatIcon) {
+          if (isDay === 0) floatIcon.innerText = '🌙';
+          else if (precipitation > 0.2 || (weatherCode >= 51 && weatherCode <= 67)) floatIcon.innerText = '🌧️';
+          else if (weatherCode >= 2 && weatherCode <= 3) floatIcon.innerText = '⛅';
+          else floatIcon.innerText = '☀️';
+        }
+
+        // Update Text & Metric Elements (Embedded Section)
         const tempEl = document.getElementById('weather-temp');
         if (tempEl) tempEl.innerText = `${toBengaliDigits(temp)}°`;
 
@@ -3352,17 +3949,38 @@
         }
 
         // Sunrise & Sunset
+        let sunriseStr = '--:--';
+        let sunsetStr = '--:--';
         if (daily && daily.sunrise && daily.sunrise[0]) {
+          sunriseStr = formatBengaliTime(daily.sunrise[0]);
           const sunriseEl = document.getElementById('weather-sunrise');
-          if (sunriseEl) sunriseEl.innerText = formatBengaliTime(daily.sunrise[0]);
+          if (sunriseEl) sunriseEl.innerText = sunriseStr;
         }
         if (daily && daily.sunset && daily.sunset[0]) {
+          sunsetStr = formatBengaliTime(daily.sunset[0]);
           const sunsetEl = document.getElementById('weather-sunset');
-          if (sunsetEl) sunsetEl.innerText = formatBengaliTime(daily.sunset[0]);
+          if (sunsetEl) sunsetEl.innerText = sunsetStr;
         }
+
+        // Update Modal Weather Elements
+        const modalTemp = document.getElementById('modal-weather-temp');
+        if (modalTemp) modalTemp.innerText = `${toBengaliDigits(temp)}°`;
+        const modalDesc = document.getElementById('modal-weather-desc');
+        if (modalDesc) modalDesc.innerText = conditionDesc;
+        const modalFeels = document.getElementById('modal-weather-feels');
+        if (modalFeels) modalFeels.innerText = `অনুভূত: ${toBengaliDigits(feelsLike)}°C`;
+        const modalHumidity = document.getElementById('modal-weather-humidity');
+        if (modalHumidity) modalHumidity.innerText = `${toBengaliDigits(humidity)}%`;
+        const modalWind = document.getElementById('modal-weather-wind');
+        if (modalWind) modalWind.innerText = `${toBengaliDigits(windSpeed)} কিমি/ঘ`;
+        const modalRain = document.getElementById('modal-weather-rain');
+        if (modalRain) modalRain.innerText = `${toBengaliDigits(rainProb)}%`;
+        const modalSun = document.getElementById('modal-weather-sun');
+        if (modalSun) modalSun.innerText = `${sunriseStr} / ${sunsetStr}`;
 
         // Determine Mode & Render Visual Animations
         const visualContainer = document.getElementById('weather-visual-container');
+        const modalVisual = document.getElementById('modal-weather-visual');
         const modeBadge = document.getElementById('weather-time-mode');
         const bgGlow = document.getElementById('weather-bg-glow');
         const isRain = (weatherCode >= 51 && weatherCode <= 67) || (weatherCode >= 80 && weatherCode <= 82) || (precipitation > 0.2);
@@ -3389,94 +4007,103 @@
         }
 
         // Render Dynamic Visual States
-        if (visualContainer && modeBadge) {
-          if (isRain) {
-            // Rain Mode
+        let visualMarkup = '';
+        if (isRain) {
+          // Rain Mode
+          if (modeBadge) {
             modeBadge.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-teal-500/20 text-teal-300 border border-teal-500/40';
             modeBadge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse"></span><span>বৃষ্টির ধারা (Rain Mode)</span>';
-            if (bgGlow) bgGlow.className = 'absolute -top-24 -right-24 w-96 h-96 rounded-full bg-teal-500/15 blur-[90px] pointer-events-none transition-all duration-700';
+          }
+          if (bgGlow) bgGlow.className = 'absolute -top-24 -right-24 w-96 h-96 rounded-full bg-teal-500/15 blur-[90px] pointer-events-none transition-all duration-700';
 
-            visualContainer.innerHTML = `
-              <div class="relative w-full h-full flex items-center justify-center">
-                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-teal-300 z-10 relative">
-                  <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/>
-                </svg>
-                <div class="weather-rain-container">
-                  <div class="weather-rain-drop" style="left: 20%; animation-delay: 0.1s; height: 14px;"></div>
-                  <div class="weather-rain-drop" style="left: 35%; animation-delay: 0.4s; height: 16px;"></div>
-                  <div class="weather-rain-drop" style="left: 50%; animation-delay: 0.2s; height: 12px;"></div>
-                  <div class="weather-rain-drop" style="left: 65%; animation-delay: 0.6s; height: 15px;"></div>
-                  <div class="weather-rain-drop" style="left: 80%; animation-delay: 0.3s; height: 13px;"></div>
-                </div>
+          visualMarkup = `
+            <div class="relative w-full h-full flex items-center justify-center">
+              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-teal-300 z-10 relative">
+                <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/>
+              </svg>
+              <div class="weather-rain-container">
+                <div class="weather-rain-drop" style="left: 20%; animation-delay: 0.1s; height: 14px;"></div>
+                <div class="weather-rain-drop" style="left: 35%; animation-delay: 0.4s; height: 16px;"></div>
+                <div class="weather-rain-drop" style="left: 50%; animation-delay: 0.2s; height: 12px;"></div>
+                <div class="weather-rain-drop" style="left: 65%; animation-delay: 0.6s; height: 15px;"></div>
+                <div class="weather-rain-drop" style="left: 80%; animation-delay: 0.3s; height: 13px;"></div>
               </div>
-            `;
-          } else if (isDay === 0) {
-            // Night / Clear Moon Mode
+            </div>
+          `;
+        } else if (isDay === 0) {
+          // Night / Clear Moon Mode
+          if (modeBadge) {
             modeBadge.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/40';
             modeBadge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></span><span>নির্মল রজনী (Night Moon Mode)</span>';
-            if (bgGlow) bgGlow.className = 'absolute -top-24 -right-24 w-96 h-96 rounded-full bg-indigo-500/15 blur-[90px] pointer-events-none transition-all duration-700';
+          }
+          if (bgGlow) bgGlow.className = 'absolute -top-24 -right-24 w-96 h-96 rounded-full bg-indigo-500/15 blur-[90px] pointer-events-none transition-all duration-700';
 
-            visualContainer.innerHTML = `
-              <div class="relative w-full h-full flex items-center justify-center">
-                <!-- Glowing Crescent Moon -->
-                <svg width="52" height="52" viewBox="0 0 24 24" fill="currentColor" class="text-amber-200 drop-shadow-[0_0_12px_rgba(253,230,138,0.7)] z-10">
-                  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
-                </svg>
-                <!-- Soft Floating Twinkling Stars -->
-                <div class="weather-star" style="top: 20px; left: 24px; animation-delay: 0.2s;"></div>
-                <div class="weather-star" style="top: 32px; right: 28px; animation-delay: 1.1s;"></div>
-                <div class="weather-star" style="bottom: 24px; left: 32px; animation-delay: 0.7s;"></div>
-                <div class="weather-star" style="bottom: 30px; right: 20px; animation-delay: 1.6s;"></div>
-              </div>
-            `;
-          } else if (weatherCode >= 2 && weatherCode <= 3) {
-            // Cloudy Mode
+          visualMarkup = `
+            <div class="relative w-full h-full flex items-center justify-center">
+              <svg width="52" height="52" viewBox="0 0 24 24" fill="currentColor" class="text-amber-200 drop-shadow-[0_0_12px_rgba(253,230,138,0.7)] z-10">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+              </svg>
+              <div class="weather-star" style="top: 20px; left: 24px; animation-delay: 0.2s;"></div>
+              <div class="weather-star" style="top: 32px; right: 28px; animation-delay: 1.1s;"></div>
+              <div class="weather-star" style="bottom: 24px; left: 32px; animation-delay: 0.7s;"></div>
+              <div class="weather-star" style="bottom: 30px; right: 20px; animation-delay: 1.6s;"></div>
+            </div>
+          `;
+        } else if (weatherCode >= 2 && weatherCode <= 3) {
+          // Cloudy Mode
+          if (modeBadge) {
             modeBadge.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-slate-500/20 text-slate-300 border border-slate-500/40';
             modeBadge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-slate-400 animate-pulse"></span><span>মেঘলা আকাশ (Cloudy Mode)</span>';
-            if (bgGlow) bgGlow.className = 'absolute -top-24 -right-24 w-96 h-96 rounded-full bg-slate-500/15 blur-[90px] pointer-events-none transition-all duration-700';
+          }
+          if (bgGlow) bgGlow.className = 'absolute -top-24 -right-24 w-96 h-96 rounded-full bg-slate-500/15 blur-[90px] pointer-events-none transition-all duration-700';
 
-            visualContainer.innerHTML = `
-              <div class="relative w-full h-full flex items-center justify-center">
-                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-slate-300 weather-cloud-float drop-shadow-[0_0_12px_rgba(203,213,225,0.4)]">
-                  <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
-                </svg>
-              </div>
-            `;
-          } else if (localHour >= 11 && localHour <= 14) {
-            // Noon Mode (Intense daylight flare)
+          visualMarkup = `
+            <div class="relative w-full h-full flex items-center justify-center">
+              <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-slate-300 weather-cloud-float drop-shadow-[0_0_12px_rgba(203,213,225,0.4)]">
+                <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
+              </svg>
+            </div>
+          `;
+        } else if (localHour >= 11 && localHour <= 14) {
+          // Noon Mode (Intense daylight flare)
+          if (modeBadge) {
             modeBadge.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-amber-500/25 text-amber-300 border border-amber-400/50';
             modeBadge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span><span>তীব্র দ্বিপ্রহর (Noon Mode)</span>';
-            if (bgGlow) bgGlow.className = 'absolute -top-24 -right-24 w-96 h-96 rounded-full bg-amber-400/25 blur-[100px] pointer-events-none transition-all duration-700';
+          }
+          if (bgGlow) bgGlow.className = 'absolute -top-24 -right-24 w-96 h-96 rounded-full bg-amber-400/25 blur-[100px] pointer-events-none transition-all duration-700';
 
-            visualContainer.innerHTML = `
-              <div class="relative w-full h-full flex items-center justify-center">
-                <div class="w-20 h-20 rounded-full bg-amber-400/20 weather-noon-glow flex items-center justify-center absolute"></div>
-                <svg width="56" height="56" viewBox="0 0 24 24" fill="currentColor" class="text-amber-400 drop-shadow-[0_0_20px_rgba(251,191,36,0.9)] z-10">
-                  <circle cx="12" cy="12" r="5"/>
-                  <path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-                </svg>
-              </div>
-            `;
-          } else {
-            // Day / Sunny Mode
+          visualMarkup = `
+            <div class="relative w-full h-full flex items-center justify-center">
+              <div class="w-20 h-20 rounded-full bg-amber-400/20 weather-noon-glow flex items-center justify-center absolute"></div>
+              <svg width="56" height="56" viewBox="0 0 24 24" fill="currentColor" class="text-amber-400 drop-shadow-[0_0_20px_rgba(251,191,36,0.9)] z-10">
+                <circle cx="12" cy="12" r="5"/>
+                <path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+              </svg>
+            </div>
+          `;
+        } else {
+          // Day / Sunny Mode
+          if (modeBadge) {
             modeBadge.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/40';
             modeBadge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span><span>দিনের আলো (Day Mode)</span>';
-            if (bgGlow) bgGlow.className = 'absolute -top-24 -right-24 w-96 h-96 rounded-full bg-amber-500/15 blur-[90px] pointer-events-none transition-all duration-700';
-
-            visualContainer.innerHTML = `
-              <div class="relative w-full h-full flex items-center justify-center">
-                <svg width="58" height="58" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-amber-400 weather-sun-glow">
-                  <circle cx="12" cy="12" r="5"/>
-                  <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-                </svg>
-              </div>
-            `;
           }
+          if (bgGlow) bgGlow.className = 'absolute -top-24 -right-24 w-96 h-96 rounded-full bg-amber-500/15 blur-[90px] pointer-events-none transition-all duration-700';
+
+          visualMarkup = `
+            <div class="relative w-full h-full flex items-center justify-center">
+              <svg width="58" height="58" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-amber-400 weather-sun-glow">
+                <circle cx="12" cy="12" r="5"/>
+                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+              </svg>
+            </div>
+          `;
         }
+
+        if (visualContainer) visualContainer.innerHTML = visualMarkup;
+        if (modalVisual) modalVisual.innerHTML = visualMarkup;
 
         // Render Next 2-Day Forecast
         if (daily && daily.time && daily.time.length >= 3) {
-          // Format Date helper
           const formatBengaliDate = (iso) => {
             const d = new Date(iso);
             const day = toBengaliDigits(d.getDate());
@@ -3521,6 +4148,43 @@
           if (rain2El) rain2El.innerText = `বৃষ্টি: ${toBengaliDigits(rain2)}%`;
           const icon2El = document.getElementById('forecast-icon-2');
           if (icon2El) icon2El.innerHTML = getForecastSvgIcon(code2);
+
+          // Injected into Modal Forecast Container as well
+          const modalForecast = document.getElementById('modal-forecast-cards');
+          if (modalForecast) {
+            modalForecast.innerHTML = `
+              <div class="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-lg bg-slate-900 flex items-center justify-center shrink-0">
+                    ${getForecastSvgIcon(code1)}
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-white">আগামীকাল (${formatBengaliDate(daily.time[1])})</div>
+                    <div class="text-[11px] text-slate-300">${getWeatherDescription(code1)}</div>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <div class="text-xs font-mono font-bold text-white">${toBengaliDigits(tMax1)}° / ${toBengaliDigits(tMin1)}°C</div>
+                  <div class="text-[10px] text-teal-300 font-mono">বৃষ্টি: ${toBengaliDigits(rain1)}%</div>
+                </div>
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-lg bg-slate-900 flex items-center justify-center shrink-0">
+                    ${getForecastSvgIcon(code2)}
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-white">পরশু (${formatBengaliDate(daily.time[2])})</div>
+                    <div class="text-[11px] text-slate-300">${getWeatherDescription(code2)}</div>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <div class="text-xs font-mono font-bold text-white">${toBengaliDigits(tMax2)}° / ${toBengaliDigits(tMin2)}°C</div>
+                  <div class="text-[10px] text-teal-300 font-mono">বৃষ্টি: ${toBengaliDigits(rain2)}%</div>
+                </div>
+              </div>
+            `;
+          }
         }
 
         // Update Last Updated Timestamp
@@ -3538,6 +4202,81 @@
         if (conditionTextEl) conditionTextEl.innerText = 'আবহাওয়া তথ্য আপডেট হচ্ছে...';
       } finally {
         if (refreshIcon) refreshIcon.classList.remove('animate-spin');
+        if (modalRefreshIcon) modalRefreshIcon.classList.remove('animate-spin');
+      }
+    }
+
+    // ==========================================
+    // Baitul Noor Jame Masjid Active Waqt Telemetry
+    // Dynamically highlights current ongoing waqt in BST (GMT+6)
+    // ==========================================
+    function updateActivePrayerWaqt() {
+      const now = new Date();
+      // Bangladesh is UTC+6
+      const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+      const bstTime = new Date(utc + (3600000 * 6));
+      
+      const hours = bstTime.getHours();
+      const minutes = bstTime.getMinutes();
+      const seconds = bstTime.getSeconds();
+      const totalMinutes = (hours * 60) + minutes;
+
+      // Update BST Live Clock on Header
+      const prayerClock = document.getElementById('prayer-clock-time');
+      if (prayerClock) {
+        prayerClock.innerText = `${toBengaliDigits(String(hours).padStart(2, '0'))}:${toBengaliDigits(String(minutes).padStart(2, '0'))}:${toBengaliDigits(String(seconds).padStart(2, '0'))} BST`;
+      }
+
+      // Waqt intervals in minutes from midnight (BST standard for Dalal Bazar):
+      // Fajr: 04:55 (295m) to 06:15 (375m)
+      // Sunrise / Ishraq / Duha: 06:15 to 12:05 (725m)
+      // Dhuhr: 12:05 (725m) to 16:05 (965m)
+      // Asr: 16:05 (965m) to 17:18 (1038m - sunset)
+      // Maghrib: 17:18 (1038m) to 18:45 (1125m)
+      // Isha: 18:45 (1125m) to 04:55 (295m)
+
+      let activeWaqtId = '';
+      let activeWaqtName = '';
+
+      if (totalMinutes >= 295 && totalMinutes < 375) {
+        activeWaqtId = 'fajr';
+        activeWaqtName = 'ফজর সালাতের ওয়াক্ত চলমান';
+      } else if (totalMinutes >= 375 && totalMinutes < 725) {
+        activeWaqtId = '';
+        activeWaqtName = 'ইশরাক ও চাশতের ওয়াক্ত (যোহর শুরু ১২:১৫)';
+      } else if (totalMinutes >= 725 && totalMinutes < 965) {
+        activeWaqtId = 'dhuhr';
+        activeWaqtName = 'যোহর সালাতের ওয়াক্ত চলমান';
+      } else if (totalMinutes >= 965 && totalMinutes < 1038) {
+        activeWaqtId = 'asr';
+        activeWaqtName = 'আসর সালাতের ওয়াক্ত চলমান';
+      } else if (totalMinutes >= 1038 && totalMinutes < 1125) {
+        activeWaqtId = 'maghrib';
+        activeWaqtName = 'মাগরিব সালাতের ওয়াক্ত চলমান';
+      } else {
+        activeWaqtId = 'isha';
+        activeWaqtName = 'এশা সালাতের ওয়াক্ত চলমান';
+      }
+
+      // Reset all cards
+      ['fajr', 'dhuhr', 'asr', 'maghrib', 'isha'].forEach(wId => {
+        const card = document.getElementById(`waqt-${wId}`);
+        const badge = document.getElementById(`badge-${wId}`);
+        if (card) card.classList.remove('active-waqt-card');
+        if (badge) badge.classList.add('hidden');
+      });
+
+      // Highlight active ongoing card
+      if (activeWaqtId) {
+        const activeCard = document.getElementById(`waqt-${activeWaqtId}`);
+        const activeBadge = document.getElementById(`badge-${activeWaqtId}`);
+        if (activeCard) activeCard.classList.add('active-waqt-card');
+        if (activeBadge) activeBadge.classList.remove('hidden');
+      }
+
+      const activePill = document.getElementById('prayer-active-name');
+      if (activePill) {
+        activePill.innerText = activeWaqtName;
       }
     }
 
@@ -3556,11 +4295,25 @@
       clockEl.innerText = `${hours}:${minutes}:${seconds} BST`;
     }
 
+    // Keyboard ESC listener to close open modals
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        close3DMapModal();
+        closeHeritageModal();
+        closeWeatherModal();
+        closeMobileMenu();
+      }
+    });
+
     // Initialize all components on DOM Ready
     document.addEventListener('DOMContentLoaded', () => {
       initMap();
       updateClock();
       setInterval(updateClock, 1000);
+
+      // Initialize Prayer Waqt tracking
+      updateActivePrayerWaqt();
+      setInterval(updateActivePrayerWaqt, 1000);
       
       // Fetch Live Dalal Bazar Weather on load and auto-refresh every 15 minutes
       fetchDalalBazarWeather();
