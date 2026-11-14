@@ -1000,8 +1000,8 @@
               <span 
                 id="live-visitor-count" 
                 class="visitor-count-glow font-mono font-extrabold text-sm sm:text-base md:text-lg tabular-nums"
-              >০</span>
-              <span class="text-teal-200/90 font-medium">জন</span>
+              >লাইভ যুক্ত হচ্ছে...</span>
+              <span id="live-visitor-unit" class="hidden text-teal-200/90 font-medium">জন</span>
             </div>
           </div>
         </div>
@@ -4424,7 +4424,7 @@
 
     // ==========================================
     // Real-Time Live Website Visitor Counter
-    // CounterAPI + localStorage fallback + 1.8s Ease-Out Spring Count-Up
+    // 100% Real Global Count via CORS-enabled Abacus API (No Fake Numbers)
     // ==========================================
     function formatBengaliNumber(num) {
       const formattedEn = Number(num || 0).toLocaleString('en-US');
@@ -4477,46 +4477,43 @@
 
     async function initLiveVisitorCounter() {
       const countEl = document.getElementById('live-visitor-count');
+      const unitEl = document.getElementById('live-visitor-unit');
       if (!countEl) return;
 
-      const STORAGE_KEY = 'sharif_bhuiyar_bari_visitor_count';
-      const DEFAULT_BASELINE = 1450;
-      let targetCount = null;
+      countEl.textContent = 'লাইভ যুক্ত হচ্ছে...';
+      if (unitEl) unitEl.classList.add('hidden');
 
       try {
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 4500);
-        const response = await fetch('https://api.counterapi.dev/v1/sharif-bhuiyar-bari/visits/up', {
+        const timeoutId = setTimeout(() => controller.abort(), 6000);
+        const response = await fetch('https://abacus.jasoncameron.dev/hit/sharif-bhuiyar-bari-2026/visits', {
           method: 'GET',
+          mode: 'cors',
+          cache: 'no-store',
           signal: controller.signal
         });
         clearTimeout(timeoutId);
 
-        if (response.ok) {
-          const data = await response.json();
-          if (data && typeof data.count === 'number' && Number.isFinite(data.count) && data.count > 0) {
-            targetCount = data.count;
-            try {
-              localStorage.setItem(STORAGE_KEY, String(targetCount));
-            } catch (storageErr) {}
-          }
+        if (!response.ok) {
+          throw new Error('Visitor API HTTP error ' + response.status);
         }
+
+        const data = await response.json();
+        const realCount = (data && typeof data.value === 'number' && Number.isFinite(data.value) && data.value >= 0)
+          ? data.value
+          : null;
+
+        if (realCount === null) {
+          throw new Error('Invalid visitor count payload');
+        }
+
+        if (unitEl) unitEl.classList.remove('hidden');
+        animateVisitorCountUp(countEl, realCount, 1800);
       } catch (err) {
-        // Silent fallback to localStorage below
+        // Network error or AdBlocker: display connecting notice instead of fake numbers
+        countEl.textContent = 'লাইভ যুক্ত হচ্ছে...';
+        if (unitEl) unitEl.classList.add('hidden');
       }
-
-      if (targetCount === null) {
-        try {
-          const savedRaw = localStorage.getItem(STORAGE_KEY);
-          const parsed = savedRaw ? parseInt(savedRaw, 10) : NaN;
-          targetCount = (Number.isFinite(parsed) && parsed > 0) ? parsed + 1 : DEFAULT_BASELINE;
-          localStorage.setItem(STORAGE_KEY, String(targetCount));
-        } catch (storageErr) {
-          targetCount = DEFAULT_BASELINE;
-        }
-      }
-
-      animateVisitorCountUp(countEl, targetCount, 1800);
     }
 
     // Keyboard ESC listener to close open modals
